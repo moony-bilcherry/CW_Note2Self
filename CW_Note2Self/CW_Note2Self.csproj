@@ -55,18 +55,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="CalendarDay.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CalendarEventView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="CalendarMonth.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Ellipses.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -79,17 +67,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="CalendarDay.xaml.cs">
-      <DependentUpon>CalendarDay.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CalendarEventView.xaml.cs">
-      <DependentUpon>CalendarEventView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="CalendarMonth.xaml.cs">
-      <DependentUpon>CalendarMonth.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ICalendarEvent.cs" />
-    <Compile Include="MonthNumberToNameConverter.cs" />
     <Compile Include="Welcome.xaml.cs">
       <DependentUpon>Welcome.xaml</DependentUpon>
       <SubType>Code</SubType>
