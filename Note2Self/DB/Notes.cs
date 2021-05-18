@@ -8,6 +8,8 @@ namespace CW_Note2Self.DB
 {
     class Notes
     {
-
+        public int NoteId { get; set; }
+        public string NoteData { get; set; }
+        public Users User { get; set; }
     }
 }
