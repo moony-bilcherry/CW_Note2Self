@@ -18,7 +18,7 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
 
-        <Border CornerRadius="20" Grid.RowSpan="4" Margin="2,0,-2,-0.4">
+        <Border CornerRadius="20" Grid.RowSpan="4">
             <Border.Background>
                 <LinearGradientBrush>
                     <GradientStop Color="#8980F5" Offset="0.0"/>
@@ -100,11 +100,11 @@
         </StackPanel>
         
         <StackPanel Grid.Row="3">
-            <Button Margin="0,10,0,0" Width="140" Height="50" Content="Войти"/>
+            <Button Style="{StaticResource WhiteOutline}" Margin="0,10,0,0" Width="140" Height="50" Content="Войти"/>
             <Label HorizontalAlignment="Center" FontWeight="Normal" 
                    FontFamily="Calibri" FontSize="16" Foreground="#fdfffc"
                    Background="Transparent">или</Label>
-            <Button Width="190" Height="50" Content="Создать аккаунт"/>
+            <Button Style="{StaticResource WhiteOutline}" Width="190" Height="50" Content="Создать аккаунт"/>
         </StackPanel>
     </Grid>
 </Window>
