@@ -23,7 +23,7 @@ namespace Note2Self.DB
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer(@"Data Source =.\MSSQL; Trusted_Connection = Yes; DataBase = Note2Self;");
+            dbContextOptionsBuilder.UseSqlServer(@"Data Source=MOONY-SHTO;Initial Catalog=Note2Self;Integrated Security=True");
         }
     }
 }
