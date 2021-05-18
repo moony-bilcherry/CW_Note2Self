@@ -1,11 +1,11 @@
-﻿<Window x:Class="CW_Note2Self.Welcome"
+﻿<Window x:Class="CW_Note2Self.Register"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CW_Note2Self"
         mc:Ignorable="d"
-        Title="Welcome" Height="450" Width="380" 
+        Title="Register" Height="550" Width="380" 
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -14,8 +14,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="4*"/>
         </Grid.RowDefinitions>
 
         <Border CornerRadius="20" Grid.RowSpan="4" Margin="2,0,-2,-0.4">
@@ -28,11 +28,10 @@
         </Border>
 
         <Ellipse Grid.Row="0" Style="{StaticResource ClosingEll}" HorizontalAlignment="Right"
-                 VerticalAlignment="Center" Margin="0,0,10,0" MouseLeftButtonDown="closeApp" ToolTip="Закрыть"
-                 />
+                 VerticalAlignment="Center" Margin="0,0,10,0" MouseLeftButtonDown="closeApp"/>
         <Ellipse Grid.Row="0" Style="{StaticResource MinimizingEll}" HorizontalAlignment="Right"
-                 VerticalAlignment="Center" Margin="0,0,30,0" MouseLeftButtonDown="minimiseApp" ToolTip="Свернуть"/>
-        
+                 VerticalAlignment="Center" Margin="0,0,30,0" MouseLeftButtonDown="minimiseApp"/>
+
         <StackPanel Grid.Row="1" VerticalAlignment="Top">
             <Border BorderThickness="5"
                     Background="#fdfffc"
@@ -45,7 +44,7 @@
                      Foreground="#011627">Note<Run Foreground="#2EC4B6">2</Run>Self</TextBlock>
             </Border>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="2">
             <Label FontWeight="DemiBold" 
                      FontFamily="Calibri"
@@ -53,9 +52,60 @@
                      HorizontalAlignment="Center"
                      Foreground="#fdfffc"
                      Background="Transparent"
+                     BorderThickness="0">Ваше имя:</Label>
+            <StackPanel Orientation="Horizontal">
+                <TextBox Text="" 
+                     FontWeight="Normal" 
+                     FontFamily="Calibri"
+                     FontSize="20"
+                     HorizontalAlignment="Center"
+                     Foreground="#fdfffc"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="250"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5"
+                         Margin="65,0,0,0"/>
+            </StackPanel>
+            <Border Width="250"
+                        Height="3"
+                        Background="#fdfffc"/>
+
+            <Label FontWeight="DemiBold" Margin="0,10,0,0"
+                     FontFamily="Calibri"
+                     FontSize="24"
+                     HorizontalAlignment="Center"
+                     Foreground="#fdfffc"
+                     Background="Transparent"
                      BorderThickness="0">Логин:</Label>
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Username" 
+                <TextBox Text="" 
+                     FontWeight="Normal" 
+                     FontFamily="Calibri"
+                     FontSize="20"
+                     HorizontalAlignment="Center"
+                     Foreground="#fdfffc"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="250"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5"
+                         Margin="65,0,0,0"/>
+            </StackPanel>
+            <Border Width="250"
+                        Height="3"
+                        Background="#fdfffc"/>
+
+
+            <Label FontWeight="DemiBold" Margin="0,10,0,0"
+                     FontFamily="Calibri"
+                     FontSize="24"
+                     HorizontalAlignment="Center"
+                     Foreground="#fdfffc"
+                     Background="Transparent"
+                     BorderThickness="0">Пароль:</Label>
+            <StackPanel Orientation="Horizontal">
+                <PasswordBox Password="" 
                      FontWeight="Normal" 
                      FontFamily="Calibri"
                      FontSize="20"
@@ -78,9 +128,9 @@
                      HorizontalAlignment="Center"
                      Foreground="#fdfffc"
                      Background="Transparent"
-                     BorderThickness="0">Пароль:</Label>
+                     BorderThickness="0">Повторите пароль:</Label>
             <StackPanel Orientation="Horizontal">
-                <PasswordBox Password="password" 
+                <PasswordBox Password="" 
                      FontWeight="Normal" 
                      FontFamily="Calibri"
                      FontSize="20"
@@ -98,13 +148,10 @@
                         Height="3"
                         Background="#fdfffc"/>
         </StackPanel>
-        
+
         <StackPanel Grid.Row="3">
-            <Button Margin="0,10,0,0" Width="140" Height="50" Content="Войти"/>
-            <Label HorizontalAlignment="Center" FontWeight="Normal" 
-                   FontFamily="Calibri" FontSize="16" Foreground="#fdfffc"
-                   Background="Transparent">или</Label>
-            <Button Width="190" Height="50" Content="Создать аккаунт"/>
+            <Button Width="190" Height="50" Margin="0,0,0,10" Content="Создать аккаунт"/>
+            <Button Width="110" Height="50" Content="Назад"/>
         </StackPanel>
     </Grid>
 </Window>
