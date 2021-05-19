@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Note2Self.ViewModels
 {
-    class RegisterViewModel : BaseViewModel
+    public class RegisterViewModel : BaseViewModel
     {
     }
 }
