@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Note2Self"
              xmlns:viewmodels="clr-namespace:Note2Self.ViewModels"
-             xmlns:views="clr-namespace:CW_Note2Self.Views"
+             xmlns:views="clr-namespace:Note2Self.Views"
              StartupUri="Views/Main.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -14,6 +14,10 @@
             
             <DataTemplate DataType="{x:Type viewmodels:WelcomeViewModel}">
                 <views:Welcome/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+                <views:Home/>
             </DataTemplate>
 
             <ResourceDictionary.MergedDictionaries>

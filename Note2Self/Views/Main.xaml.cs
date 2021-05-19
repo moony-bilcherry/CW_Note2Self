@@ -49,6 +49,11 @@ namespace Note2Self.Views
                 MessageBox.Show(ex.Message);
             }
         }
-        
+
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+                DragMove();
+        }
     }
 }

@@ -9,7 +9,7 @@
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         Title="Main" Height="100" Width="200" SizeToContent="WidthAndHeight"
-        FontFamily="Calibri" FontSize="14">
+        FontFamily="Calibri" FontSize="14" MouseDown="Window_MouseDown">
     <Border CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>

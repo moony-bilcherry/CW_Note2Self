@@ -8,7 +8,7 @@ namespace Note2Self.ViewModels
 {
     class MainViewModel : BaseViewModel
     {
-        private BaseViewModel _selectedViewModel = new RegisterViewModel();
+        private BaseViewModel _selectedViewModel = new HomeViewModel();
         public BaseViewModel SelectedViewModel
         {
             get { return _selectedViewModel; }
