@@ -20,7 +20,7 @@
 
         <Border CornerRadius="20" Grid.RowSpan="4">
             <Border.Background>
-                <LinearGradientBrush>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                     <GradientStop Color="#8980F5" Offset="0.0"/>
                     <GradientStop Color="#2EC4B6" Offset="1"/>
                 </LinearGradientBrush>

@@ -12,13 +12,15 @@ namespace Note2Self.DB
     {
         public DbSet<Users> Users { get; set; }
         public DbSet<Notes> Notes { get; set; }
-
+        public DbSet<Moods> Moods { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Notes>()
                 .HasKey(c => c.NoteId);
             modelBuilder.Entity<Users>()
                 .HasKey(c => c.UserId);
+            modelBuilder.Entity<Moods>()
+                .HasKey(c => c.MoodId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
