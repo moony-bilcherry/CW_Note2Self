@@ -4,13 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CW_Note2Self.Views"
-        mc:Ignorable="d" Height="550" Width="380" FontFamily="Calibri" FontSize="14">
+        mc:Ignorable="d" Height="540" Width="380" FontFamily="Calibri" FontSize="14">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="9*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" VerticalAlignment="Top">
