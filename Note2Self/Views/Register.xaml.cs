@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace CW_Note2Self
+namespace CW_Note2Self.Views
 {
     /// <summary>
     /// Логика взаимодействия для Register.xaml

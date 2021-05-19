@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Note2Self.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace CW_Note2Self
+namespace CW_Note2Self.Views
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml

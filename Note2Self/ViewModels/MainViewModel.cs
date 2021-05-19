@@ -8,5 +8,7 @@ namespace Note2Self.ViewModels
 {
     class MainViewModel : BaseViewModel
     {
+        
+
     }
 }
