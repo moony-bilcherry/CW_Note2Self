@@ -10,96 +10,98 @@
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown" FontFamily="Calibri" FontSize="14">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="5*"/>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
+    <Border CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
 
-        <Border CornerRadius="20" Grid.RowSpan="4">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#8980F5" Offset="0.0"/>
-                    <GradientStop Color="#2EC4B6" Offset="1"/>
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>
+            <Ellipse Grid.Row="0" Style="{StaticResource ClosingEll}" HorizontalAlignment="Right"
+                     VerticalAlignment="Center" Margin="0,0,10,0" MouseLeftButtonDown="closeApp" ToolTip="Закрыть"
+                     />
+            <Ellipse Grid.Row="0" Style="{StaticResource MinimizingEll}" HorizontalAlignment="Right"
+                     VerticalAlignment="Center" Margin="0,0,30,0" MouseLeftButtonDown="minimiseApp" ToolTip="Свернуть"/>
 
-        <Ellipse Grid.Row="0" Style="{StaticResource ClosingEll}" HorizontalAlignment="Right"
-                 VerticalAlignment="Center" Margin="0,0,10,0" MouseLeftButtonDown="closeApp" ToolTip="Закрыть"
-                 />
-        <Ellipse Grid.Row="0" Style="{StaticResource MinimizingEll}" HorizontalAlignment="Right"
-                 VerticalAlignment="Center" Margin="0,0,30,0" MouseLeftButtonDown="minimiseApp" ToolTip="Свернуть"/>
-        
-        <StackPanel Grid.Row="1" VerticalAlignment="Top">
-            <Border BorderThickness="5"
-                    Background="#fdfffc"
-                    Width="230"
-                    CornerRadius="20">
-                <TextBlock FontWeight="DemiBold" 
-                     FontFamily="Calibri"
-                     FontSize="40"
-                     HorizontalAlignment="Center"
-                     Foreground="#011627">Note<Run Foreground="#2EC4B6">2</Run>Self</TextBlock>
-            </Border>
-        </StackPanel>
-        
-        <StackPanel Grid.Row="2">
-            <Label FontSize="24" FontWeight="DemiBold"
-                     HorizontalAlignment="Center"
-                     Foreground="#fdfffc"
-                     Background="Transparent"
-                     BorderThickness="0">Логин:</Label>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="usernameText"
-                     FontWeight="Normal" 
-                     FontSize="20"
-                     HorizontalAlignment="Center"
-                     Foreground="#fdfffc"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     Width="250"
-                     HorizontalContentAlignment="Left"
-                     Opacity="0.5"
-                         Margin="65,0,0,0"/>
-
+            <StackPanel Grid.Row="1" VerticalAlignment="Top">
+                <Border BorderThickness="5"
+                        Background="#fdfffc"
+                        Width="230"
+                        CornerRadius="20">
+                    <TextBlock FontWeight="DemiBold" 
+                         FontFamily="Calibri"
+                         FontSize="40"
+                         HorizontalAlignment="Center"
+                         Foreground="#011627">Note<Run Foreground="#2EC4B6">2</Run>Self</TextBlock>
+                </Border>
             </StackPanel>
-            <Border Width="250"
-                        Height="3"
-                        Background="#fdfffc"/>
-            <Label FontWeight="DemiBold" Margin="0,10,0,0"
-                     FontSize="24"
-                     HorizontalAlignment="Center"
-                     Foreground="#fdfffc"
-                     Background="Transparent"
-                     BorderThickness="0">Пароль:</Label>
-            <StackPanel Orientation="Horizontal">
-                <PasswordBox x:Name="passwordText"
-                     FontWeight="Normal"
-                     FontSize="20"
-                     HorizontalAlignment="Center"
-                     Foreground="#fdfffc"
-                     Background="Transparent"
-                     BorderThickness="0"
-                     Width="250"
-                     HorizontalContentAlignment="Left"
-                     Opacity="0.5"
-                         Margin="65,0,0,0"/>
 
+            <StackPanel Grid.Row="2">
+                <Label FontSize="24" FontWeight="DemiBold"
+                         HorizontalAlignment="Center"
+                         Foreground="#fdfffc"
+                         Background="Transparent"
+                         BorderThickness="0">Логин:</Label>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="usernameText"
+                         FontWeight="Normal" 
+                         FontSize="20"
+                         HorizontalAlignment="Center"
+                         Foreground="#fdfffc"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Width="250"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.5"
+                             Margin="65,0,0,0"/>
+
+                </StackPanel>
+                <Border Width="250"
+                            Height="3"
+                            Background="#fdfffc"/>
+                <Label FontWeight="DemiBold" Margin="0,10,0,0"
+                         FontSize="24"
+                         HorizontalAlignment="Center"
+                         Foreground="#fdfffc"
+                         Background="Transparent"
+                         BorderThickness="0">Пароль:</Label>
+                <StackPanel Orientation="Horizontal">
+                    <PasswordBox x:Name="passwordText"
+                         FontWeight="Normal"
+                         FontSize="20"
+                         HorizontalAlignment="Center"
+                         Foreground="#fdfffc"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Width="250"
+                         HorizontalContentAlignment="Left"
+                         Opacity="0.5"
+                             Margin="65,0,0,0"/>
+
+                </StackPanel>
+                <Border Width="250"
+                            Height="3"
+                            Background="#fdfffc"/>
             </StackPanel>
-            <Border Width="250"
-                        Height="3"
-                        Background="#fdfffc"/>
-        </StackPanel>
-        
-        <StackPanel Grid.Row="3">
-            <Button x:Name="loginButton" Style="{StaticResource WhiteOutline}" Margin="0,10,0,0" Width="140" Height="50" Content="Войти"/>
-            <Label HorizontalAlignment="Center" FontWeight="Normal" 
-                   FontSize="16" Foreground="#fdfffc"
-                   Background="Transparent">или</Label>
-            <Button x:Name="registerButton" Style="{StaticResource WhiteOutline}" Width="190" Height="50" Content="Создать аккаунт"/>
-        </StackPanel>
-    </Grid>
+
+            <StackPanel Grid.Row="3">
+                <Button x:Name="loginButton" Style="{StaticResource WhiteOutline}" Margin="0,10,0,0" Width="140" Height="50" Content="Войти"/>
+                <Label HorizontalAlignment="Center" FontWeight="Normal" 
+                       FontSize="16" Foreground="#fdfffc"
+                       Background="Transparent">или</Label>
+                <Button x:Name="registerButton" Style="{StaticResource WhiteOutline}" Width="190" Height="50" Content="Создать аккаунт"/>
+            </StackPanel>
+        </Grid>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#8980F5" Offset="0.0"/>
+                <GradientStop Color="#2EC4B6" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+    </Border>
+
+    
 </Window>
