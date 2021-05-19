@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CW_Note2Self"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="1000"
+        Title="MainWindow" Height="600" Width="1000"
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
@@ -46,6 +46,7 @@
             <Button Style="{StaticResource MenuButton}" Grid.Row="1" Grid.Column="1" Content="Календарь"/>
             <Button Style="{StaticResource MenuButton}" Grid.Row="1" Grid.Column="2" Content="События"/>
             <Button Style="{StaticResource MenuButton}" Grid.Row="1" Grid.Column="8" Content="Выход"/>
+            
             <StackPanel Grid.Row="2" Grid.ColumnSpan="8">
                 <Calendar Background="{x:Null}" BorderBrush="White" Foreground="White"/>
             </StackPanel>
