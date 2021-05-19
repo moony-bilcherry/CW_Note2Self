@@ -9,7 +9,7 @@
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        MouseDown="Window_MouseDown">
+        MouseDown="Window_MouseDown" FontFamily="Calibri" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -47,17 +47,14 @@
         </StackPanel>
         
         <StackPanel Grid.Row="2">
-            <Label FontWeight="DemiBold" 
-                     FontFamily="Calibri"
-                     FontSize="24"
+            <Label FontSize="24" FontWeight="DemiBold"
                      HorizontalAlignment="Center"
                      Foreground="#fdfffc"
                      Background="Transparent"
                      BorderThickness="0">Логин:</Label>
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="Username" 
+                <TextBox x:Name="usernameText"
                      FontWeight="Normal" 
-                     FontFamily="Calibri"
                      FontSize="20"
                      HorizontalAlignment="Center"
                      Foreground="#fdfffc"
@@ -73,16 +70,14 @@
                         Height="3"
                         Background="#fdfffc"/>
             <Label FontWeight="DemiBold" Margin="0,10,0,0"
-                     FontFamily="Calibri"
                      FontSize="24"
                      HorizontalAlignment="Center"
                      Foreground="#fdfffc"
                      Background="Transparent"
                      BorderThickness="0">Пароль:</Label>
             <StackPanel Orientation="Horizontal">
-                <PasswordBox Password="password" 
-                     FontWeight="Normal" 
-                     FontFamily="Calibri"
+                <PasswordBox x:Name="passwordText"
+                     FontWeight="Normal"
                      FontSize="20"
                      HorizontalAlignment="Center"
                      Foreground="#fdfffc"
@@ -100,11 +95,11 @@
         </StackPanel>
         
         <StackPanel Grid.Row="3">
-            <Button Style="{StaticResource WhiteOutline}" Margin="0,10,0,0" Width="140" Height="50" Content="Войти"/>
+            <Button x:Name="loginButton" Style="{StaticResource WhiteOutline}" Margin="0,10,0,0" Width="140" Height="50" Content="Войти"/>
             <Label HorizontalAlignment="Center" FontWeight="Normal" 
-                   FontFamily="Calibri" FontSize="16" Foreground="#fdfffc"
+                   FontSize="16" Foreground="#fdfffc"
                    Background="Transparent">или</Label>
-            <Button Style="{StaticResource WhiteOutline}" Width="190" Height="50" Content="Создать аккаунт"/>
+            <Button x:Name="registerButton" Style="{StaticResource WhiteOutline}" Width="190" Height="50" Content="Создать аккаунт"/>
         </StackPanel>
     </Grid>
 </Window>

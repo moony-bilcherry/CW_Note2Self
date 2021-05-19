@@ -9,7 +9,7 @@
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        MouseDown="Window_MouseDown">
+        MouseDown="Window_MouseDown" FontFamily="Calibri" FontSize="14">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -29,6 +29,7 @@
         </Grid.ColumnDefinitions>
 
 
+        
         <Border CornerRadius="20" Grid.RowSpan="4" Grid.ColumnSpan="8">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">

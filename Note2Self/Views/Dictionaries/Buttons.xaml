@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style TargetType="{x:Type Button}" x:Key="WhiteOutline">
         <Setter Property="Foreground" Value="#fdfffc"/>
-        <Setter Property="FontFamily" Value="Calibri"/>
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="FontWeight" Value="Medium"/>
         
@@ -35,7 +34,6 @@
     
     <Style TargetType="{x:Type Button}" x:Key="MenuButton">
         <Setter Property="Foreground" Value="#011627"/>
-        <Setter Property="FontFamily" Value="Calibri"/>
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontWeight" Value="Medium"/>
         <Setter Property="Background" Value="Transparent"/>
