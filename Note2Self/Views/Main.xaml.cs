@@ -11,22 +11,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace CW_Note2Self.Views
+namespace Note2Self.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для Main.xaml
     /// </summary>
-    public partial class Welcome : Window
+    public partial class Main : Window
     {
-        public Welcome()
+        public Main()
         {
             InitializeComponent();
+            DataContext = new MainViewModel();
         }
 
-        private void closeApp(object sender, MouseButtonEventArgs e)
+        private void CloseButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace CW_Note2Self.Views
             }
         }
 
-        private void minimiseApp(object sender, MouseButtonEventArgs e)
+        private void MinimizeButton_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             try
             {
@@ -49,13 +49,6 @@ namespace CW_Note2Self.Views
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
-        }
+        
     }
-
-    
 }

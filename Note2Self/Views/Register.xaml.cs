@@ -17,40 +17,11 @@ namespace CW_Note2Self.Views
     /// <summary>
     /// Логика взаимодействия для Register.xaml
     /// </summary>
-    public partial class Register : Window
+    public partial class Register : UserControl
     {
         public Register()
         {
             InitializeComponent();
-        }
-        private void closeApp(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void minimiseApp(object sender, MouseButtonEventArgs e)
-        {
-            try
-            {
-                this.WindowState = WindowState.Minimized;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.LeftButton == MouseButtonState.Pressed)
-                DragMove();
         }
     }
 }

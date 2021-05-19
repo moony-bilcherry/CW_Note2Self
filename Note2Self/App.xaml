@@ -4,16 +4,14 @@
              xmlns:local="clr-namespace:Note2Self"
              xmlns:viewmodels="clr-namespace:Note2Self.ViewModels"
              xmlns:views="clr-namespace:CW_Note2Self.Views"
-             StartupUri="Views/Welcome.xaml">
+             StartupUri="Views/Main.xaml">
     <Application.Resources>
         <ResourceDictionary>
 
             <DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
                 <views:Register/>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewmodels:MainViewModel}">
-                <views:MainWindow/>
-            </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:WelcomeViewModel}">
                 <views:Welcome/>
             </DataTemplate>

@@ -18,9 +18,7 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="5*"/>
             </Grid.RowDefinitions>
-            
-            <ContentControl Content="{Binding SelectedViewModel}"/>
-            
+
             <Ellipse Grid.Row="0" Style="{StaticResource ClosingEll}" HorizontalAlignment="Right"
                      VerticalAlignment="Center" Margin="0,0,10,0" MouseLeftButtonDown="closeApp" ToolTip="Закрыть"
                      />

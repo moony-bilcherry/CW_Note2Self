@@ -8,12 +8,6 @@ namespace Note2Self.ViewModels
 {
     class WelcomeViewModel : BaseViewModel
     {
-        private BaseViewModel _selectedViewModel = new RegisterViewModel();
-
-        public BaseViewModel SelectedViewModel
-        {
-            get { return _selectedViewModel; }
-            set { _selectedViewModel = value; }
-        }
+        
     }
 }
