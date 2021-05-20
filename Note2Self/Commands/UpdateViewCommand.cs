@@ -32,7 +32,11 @@ namespace Note2Self.Commands
             }
             if (parameter.ToString() == "Register")
             {
-                viewModel.SelectedViewModel = new HomeViewModel();
+                viewModel.SelectedViewModel = new RegisterViewModel();
+            }
+            if (parameter.ToString() == "Welcome")
+            {
+                viewModel.SelectedViewModel = new WelcomeViewModel();
             }
         }
     }
