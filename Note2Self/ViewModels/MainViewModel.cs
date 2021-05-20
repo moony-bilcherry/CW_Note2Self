@@ -10,6 +10,13 @@ namespace Note2Self.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {
+        #region Приватные поля
+
+
+
+        #endregion
+
+
         private BaseViewModel _selectedViewModel = new WelcomeViewModel();
         public BaseViewModel SelectedViewModel
         {

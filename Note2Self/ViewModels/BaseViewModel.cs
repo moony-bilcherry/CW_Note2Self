@@ -10,7 +10,11 @@ namespace Note2Self.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Событие, вызываемое, когда у любого из потомков меняется свойство
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged = (sender, e) => { };
+
         protected void OnPropertyChanged([CallerMemberName] string propertyName = default)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
