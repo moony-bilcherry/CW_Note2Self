@@ -83,12 +83,6 @@ namespace Note2Self.ViewModels
         public ICommand CloseCommand { get; set; }
         public ICommand MenuCommand { get; set; }
 
-        /// <summary>
-        /// Создание команд
-        /// </summary>
-        /// <param name="window"></param>
-        
-
         #endregion
 
         #region Конструктор
@@ -101,17 +95,49 @@ namespace Note2Self.ViewModels
             _window.StateChanged += (sender, e) =>
             {
                 // Отправляет событие всем свойствам, задействованным в изменении размера окна
-                OnPropertyChanged(nameof(ResizeBorderThickness));
-                OnPropertyChanged(nameof(OuterMarginSize));
-                OnPropertyChanged(nameof(OuterMarginSizeThickness));
-                OnPropertyChanged(nameof(WindowRadius));
-                OnPropertyChanged(nameof(WindowCornerRadius));
+                WindowResized();
             };
 
             // Создание команд
 
             MinimizeCommand = new RelayCommand(() => _window.WindowState = WindowState.Minimized);
+            MaximizeCommand = new RelayCommand(() => _window.WindowState ^= WindowState.Maximized);
+            CloseCommand = new RelayCommand(() => _window.Close());
+            MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(_window, GetMousePosition()));
+
         }
+
+        #endregion
+
+        #region Приватные методы в помощь
+
+        /// <summary>
+        /// Получить текущее положение курсора на экране
+        /// </summary>
+        private Point GetMousePosition()
+        {
+            // позиция относительно окна
+            var position = Mouse.GetPosition(_window);
+
+            // положение в окне + положение окна в экране
+            return new Point(position.X + _window.Left, position.Y + _window.Top);
+        }
+
+        /// <summary>
+        /// Если окно меняет размер в спешл позицию (docked or maximized), этот метод обновит
+        /// все нужные property changed события чтобы установить правильный внешний вид
+        /// </summary>
+        private void WindowResized()
+        {
+            // Отправляет событие всем свойствам, задействованным в изменении размера окна
+            //OnPropertyChanged(nameof(Borderless));
+            OnPropertyChanged(nameof(ResizeBorderThickness));
+            OnPropertyChanged(nameof(OuterMarginSize));
+            OnPropertyChanged(nameof(OuterMarginSizeThickness));
+            OnPropertyChanged(nameof(WindowRadius));
+            OnPropertyChanged(nameof(WindowCornerRadius));
+        }
+
 
         #endregion
     }

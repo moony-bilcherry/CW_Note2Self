@@ -54,8 +54,27 @@
                                         <Button Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
                                             <Image Source="../Images/black_cat_64.png"/>
                                         </Button>
-                                        
-                                        
+
+                                        <!-- Название окна -->
+                                        <Viewbox Grid.Column="1" Margin="0">
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title}"/>
+                                        </Viewbox>
+
+                                        <!-- Кнопки -->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Padding="2" Style="{StaticResource Hoverless}" 
+                                                    Command="{Binding MinimizeCommand}">
+                                                <Ellipse Style="{StaticResource MinimizingEll}"/>
+                                            </Button>
+                                            <Button Padding="2" Style="{StaticResource Hoverless}" 
+                                                    Command="{Binding MaximizeCommand}">
+                                                <Ellipse Style="{StaticResource MaximizingEll}"/>
+                                            </Button>
+                                            <Button Padding="2 0 10 0" Style="{StaticResource Hoverless}"
+                                                    Command="{Binding CloseCommand}">
+                                                <Ellipse Style="{StaticResource ClosingEll}"/>
+                                            </Button>
+                                        </StackPanel>
                                     </Grid>
                                 </Grid>
                             </Grid>
