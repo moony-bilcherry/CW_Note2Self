@@ -7,6 +7,8 @@
         mc:Ignorable="d" 
         x:Name="AppWindow"
         FontFamily="Calibri"
+        MinHeight="{Binding WindowMinHeight}"
+        MinWidth="{Binding WindowMinWidth}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True"
         Title="Welcome, Friend!" Height="450" Width="800">
@@ -20,6 +22,11 @@
                         <Border Background="Transparent" Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
                             <!-- Контур домашнего окна -->
                             <Grid>
+                                <!-- Маска прозрачности -->
+                                <Border x:Name="Container"
+                                        Background="{StaticResource OffWhiteBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius}"/>
+
                                 <!-- Граница, фон и тень окна -->
                                 <Border CornerRadius="{Binding WindowCornerRadius}"
                                         Background="{StaticResource OffWhiteBrush}">
@@ -30,6 +37,11 @@
                                 
                                 <!-- Содеджимое окна -->
                                 <Grid>
+                                    <!-- Клиппинг уголков окна -->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
+                                    
                                     <Grid.RowDefinitions>
                                         <!-- Заголовок окна -->
                                         <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=42}"/>
@@ -76,6 +88,31 @@
                                             </Button>
                                         </StackPanel>
                                     </Grid>
+                                    
+                                    <!-- Разделитель заголовка и контента -->
+                                    <Border Grid.Row="1" Height="6" BorderThickness="0 0.2 0 0">
+                                        <!-- Полоска -->
+                                        <Border.BorderBrush>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                                                <GradientStop Color="{StaticResource OffWhite}" Offset="0.0"/>
+                                                <GradientStop Color="{StaticResource Grey}" Offset="0.5"/>
+                                                <GradientStop Color="{StaticResource OffWhite}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Border.BorderBrush>
+                                        
+                                        <!-- Тень -->
+                                        <Border.Background>
+                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1" Opacity="0.1">
+                                                <GradientStop Color="{StaticResource Silver}" Offset="0.0"/>
+                                                <GradientStop Color="{StaticResource OffWhite}" Offset="1.0"/>
+                                            </LinearGradientBrush>
+                                        </Border.Background>
+                                    </Border>
+                                    
+                                    <!-- Контент -->
+                                    <Border Grid.Row="2" Padding="{Binding InnerContentPaddingThickness}">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
                                 </Grid>
                             </Grid>
                         </Border>
@@ -93,7 +130,7 @@
             CornerRadius="0"
             />
     </WindowChrome.WindowChrome>
-    <Grid Background="Aquamarine">
-        
+
+    <Grid Background="{StaticResource OffWhiteBrush}">
     </Grid>
 </Window>

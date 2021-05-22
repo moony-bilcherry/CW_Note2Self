@@ -16,6 +16,11 @@ namespace Note2Self.ViewModels
         private Window _window;
 
         /// <summary>
+        /// Последняя известная док-позиция
+        /// </summary>
+        private WindowDockPosition _dockPosition = WindowDockPosition.Undocked;
+
+        /// <summary>
         /// Марджин вокруг окна для создания тени
         /// </summary>
         private int _outerMarginSize = 10;
@@ -28,6 +33,25 @@ namespace Note2Self.ViewModels
         #endregion
 
         #region Публичные свойства
+
+        /// <summary>
+        /// Есть ли у окна границы (границ нет, если окно развернуто или в док-позиции)
+        /// </summary>
+        public bool Borderless { get { return (_window.WindowState == WindowState.Maximized || _dockPosition != WindowDockPosition.Undocked); } }
+
+        /// <summary>
+        /// Отступ от краев окна для контента (рамочка вокруг контента)
+        /// </summary>
+        public int InnerContentPadding { get; set; } = 6;
+        public Thickness InnerContentPaddingThickness { get { return new Thickness(InnerContentPadding); } }
+
+        /// <summary>
+        /// Минимальный рзмер окна
+        /// </summary>
+        public double WindowMinWidth { get; set; } = 400;
+        public double WindowMinHeight { get; set; } = 400;
+
+
         /// <summary>
         /// Расстояние, с которого можно изменять размер окна
         /// </summary>
@@ -41,7 +65,8 @@ namespace Note2Self.ViewModels
         {
             get
             {
-                return _window.WindowState == WindowState.Maximized ? 0 : _outerMarginSize;
+                // return _window.WindowState == WindowState.Maximized ? 0 : _outerMarginSize;
+                return Borderless ? 0 : _outerMarginSize;
             }
             set
             {
@@ -57,7 +82,8 @@ namespace Note2Self.ViewModels
         {
             get
             {
-                return _window.WindowState == WindowState.Maximized ? 0 : _windowRadius;
+                //return _window.WindowState == WindowState.Maximized ? 0 : _windowRadius;
+                return Borderless ? 0 : _windowRadius;
             }
             set
             {
@@ -71,7 +97,7 @@ namespace Note2Self.ViewModels
         /// <summary>
         /// Высота полоски заголовка окна
         /// </summary>
-        public int TitleHeight { get; set; } = 40;
+        public int TitleHeight { get; set; } = 34;
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
 
         #endregion
@@ -105,6 +131,18 @@ namespace Note2Self.ViewModels
             CloseCommand = new RelayCommand(() => _window.Close());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(_window, GetMousePosition()));
 
+            // Ресайзер чинит баг WindowChrome с развернутым окном и док-позициями
+            var resizer = new WindowResizer(_window);
+
+            // Следим за изменениями доков
+            resizer.WindowDockChanged += (dock) =>
+            {
+                // Сохраняем последний док
+                _dockPosition = dock;
+
+                // Запуск событий изменения размера окна
+                WindowResized();
+            };
         }
 
         #endregion
@@ -118,7 +156,9 @@ namespace Note2Self.ViewModels
         {
             // позиция относительно окна
             var position = Mouse.GetPosition(_window);
-
+            // если окно развернуто, не добавлять положение окна
+            if(_window.WindowState == WindowState.Maximized)
+                return new Point(position.X, position.Y);
             // положение в окне + положение окна в экране
             return new Point(position.X + _window.Left, position.Y + _window.Top);
         }
@@ -130,14 +170,13 @@ namespace Note2Self.ViewModels
         private void WindowResized()
         {
             // Отправляет событие всем свойствам, задействованным в изменении размера окна
-            //OnPropertyChanged(nameof(Borderless));
+            OnPropertyChanged(nameof(Borderless));
             OnPropertyChanged(nameof(ResizeBorderThickness));
             OnPropertyChanged(nameof(OuterMarginSize));
             OnPropertyChanged(nameof(OuterMarginSizeThickness));
             OnPropertyChanged(nameof(WindowRadius));
             OnPropertyChanged(nameof(WindowCornerRadius));
         }
-
 
         #endregion
     }
