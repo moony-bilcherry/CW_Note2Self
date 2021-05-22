@@ -19,8 +19,27 @@
         
         <!-- Само содержимое страницы -->
         <Grid>
-            
-            
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <StackPanel VerticalAlignment="Center" 
+                            HorizontalAlignment="Center"
+                            TextBlock.TextAlignment="Center">
+                    <Border Background="{StaticResource OffWhiteBrush}"
+                            Padding="20" 
+                            Margin="50 15"
+                            CornerRadius="10"
+                            Width="300">
+                        <StackPanel>
+                            <TextBlock FontSize="{StaticResource FontSizeLarge}" 
+                                       Foreground="{StaticResource LightPurpleBrush}"
+                                       Text="Создать аккаунт"/>
+                            <TextBox/>
+                            <TextBox/>
+
+                            <Button Content="Дальше"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Border>
     
