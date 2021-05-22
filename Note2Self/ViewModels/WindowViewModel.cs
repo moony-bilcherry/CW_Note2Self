@@ -42,7 +42,7 @@ namespace Note2Self.ViewModels
         /// <summary>
         /// Отступ от краев окна для контента (рамочка вокруг контента)
         /// </summary>
-        public int InnerContentPadding { get; set; } = 6;
+        public int InnerContentPadding { get; set; } = 0;
         public Thickness InnerContentPaddingThickness { get { return new Thickness(InnerContentPadding); } }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Note2Self.ViewModels
         /// <summary>
         /// Расстояние, с которого можно изменять размер окна
         /// </summary>
-        public int ResizeBorder { get; set; } = 6;
+        public int ResizeBorder { get { return Borderless ? 0 : 6; } }
         public Thickness ResizeBorderThickness { get { return new Thickness(ResizeBorder + OuterMarginSize); } }
 
         /// <summary>
@@ -92,13 +92,16 @@ namespace Note2Self.ViewModels
         }
         public CornerRadius WindowCornerRadius { get { return new CornerRadius(WindowRadius); } }
 
-        public string Test { get; set; } = "My string";
-
         /// <summary>
         /// Высота полоски заголовка окна
         /// </summary>
         public int TitleHeight { get; set; } = 34;
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
+
+        /// <summary>
+        /// Текущая страница в приложении
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 

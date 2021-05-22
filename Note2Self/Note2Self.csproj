@@ -72,8 +72,4 @@
     <Resource Include="Images\black_cat_small.png" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Pages\" />
-  </ItemGroup>
-
 </Project>
