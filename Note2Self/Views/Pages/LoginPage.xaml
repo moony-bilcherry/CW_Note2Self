@@ -16,7 +16,7 @@
                 <GradientStop Color="#2EC4B6" Offset="1"/>
             </LinearGradientBrush>
         </Border.Background>
-        
+
         <!-- Само содержимое страницы -->
         <Grid>
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -24,23 +24,28 @@
                             HorizontalAlignment="Center"
                             TextBlock.TextAlignment="Center">
                     <Border Background="{StaticResource OffWhiteBrush}"
-                            Padding="20" 
-                            Margin="50 15"
+                            Padding="20 40 20 10" 
+                            Margin="50 15 50 0"
                             CornerRadius="10"
-                            Width="300">
+                            Width="250">
                         <StackPanel>
                             <TextBlock FontSize="{StaticResource FontSizeLarge}" 
                                        Foreground="{StaticResource LightPurpleBrush}"
-                                       Text="Создать аккаунт"/>
-                            <TextBox/>
-                            <TextBox/>
+                                       Text="Регистрация"
+                                       Margin="0 0 0 20"/>
+                            <TextBox Tag="Логин"/>
+                            <PasswordBox Tag="Пароль"
+                                     Margin="0 5 0 20"/>
 
-                            <Button Content="Дальше"/>
+                            <Button Content="Дальше"
+                                    HorizontalAlignment="Center"/>
                         </StackPanel>
                     </Border>
+                    <Button Content="У меня уже есть аккаунт"
+                            Style="{StaticResource TextButton}"
+                            HorizontalAlignment="Center"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>
     </Border>
-    
 </Page>

@@ -15,14 +15,26 @@
 
     <Color x:Key="Teal" >#2ec4b6</Color>
     <SolidColorBrush x:Key="TealBrush" Color="{StaticResource Teal}"/>
-    
+
+    <Color x:Key="TealPressed" >#2bb6a8</Color>
+    <SolidColorBrush x:Key="TealPressedBrush" Color="{StaticResource TealPressed}"/>
+
     <Color x:Key="LightPurple" >#8980f5</Color>
     <SolidColorBrush x:Key="LightPurpleBrush" Color="{StaticResource LightPurple}"/>
     
+    <Color x:Key="LightPurplePressed" >#7369D8</Color>
+    <SolidColorBrush x:Key="LightPurplePressedBrush" Color="{StaticResource LightPurplePressed}"/>
+
+    <Color x:Key="RedCrayola" >#ff1053</Color>
+    <SolidColorBrush x:Key="RedCrayolaBrush" Color="{StaticResource RedCrayola}"/>
+
     <Color x:Key="Crimson" >#e71d36</Color>
     <SolidColorBrush x:Key="CrimsonBrush" Color="{StaticResource Crimson}"/>
 
     <Color x:Key="Yellow" >#ffc857</Color>
     <SolidColorBrush x:Key="YellowBrush" Color="{StaticResource Yellow}"/>
+
+    <Color x:Key="YellowPressed" >#ffbb33</Color>
+    <SolidColorBrush x:Key="YellowPressedBrush" Color="{StaticResource YellowPressed}"/>
 
 </ResourceDictionary>
