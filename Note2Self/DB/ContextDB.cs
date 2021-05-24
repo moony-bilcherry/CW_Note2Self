@@ -1,5 +1,4 @@
-﻿using CW_Note2Self.DB;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +20,8 @@ namespace Note2Self.DB
                 .HasKey(c => c.UserId);
             modelBuilder.Entity<Moods>()
                 .HasKey(c => c.MoodId);
+            modelBuilder.Entity<Goals>()
+                .HasKey(c => c.GoalId);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)

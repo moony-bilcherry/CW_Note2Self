@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CW_Note2Self.DB
+namespace Note2Self.DB
 {
     class Notes
     {
@@ -14,5 +14,6 @@ namespace CW_Note2Self.DB
         public DateTime DateCreated { get; set; }
         public string NoteData { get; set; }
         public Moods Mood { get; set; }
+        public Goals Goal { get; set; }
     }
 }
