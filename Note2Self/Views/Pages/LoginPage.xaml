@@ -43,7 +43,10 @@
                                        Foreground="{StaticResource GreyBrush}"
                                        FontSize="{StaticResource FontSizeSmall}"
                                        Margin="0 5 0 0"/>
-                            <PasswordBox Margin="0 0 0 20"/>
+                            <!--<PasswordBox Margin="0 0 0 20"/>-->
+                            <local:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}"
+                                                       x:Name="passwordTextBox"
+                                                       Margin="0 0 0 20"/>
 
                             <Button Content="Дальше"
                                     HorizontalAlignment="Center"/>

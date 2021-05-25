@@ -18,7 +18,7 @@ namespace Note2Self
     /// <summary>
     /// Логика взаимодействия для LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginPage : Page /*BasePage<LoginViewModel>*/
     {
         public LoginPage()
         {

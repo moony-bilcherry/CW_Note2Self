@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Note2Self.ViewModels
+namespace Note2Self
 {
     public class BaseViewModel : INotifyPropertyChanged
     {

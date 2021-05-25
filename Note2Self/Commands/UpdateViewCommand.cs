@@ -26,10 +26,10 @@ namespace Note2Self.Commands
 
         public void Execute(object parameter)
         {
-            if(parameter.ToString() == "Home")
-            {
-                viewModel.SelectedViewModel = new HomeViewModel();
-            }
+            //if(parameter.ToString() == "Home")
+            //{
+            //    viewModel.SelectedViewModel = new HomeViewModel();
+            //}
             if (parameter.ToString() == "Register")
             {
                 viewModel.SelectedViewModel = new RegisterViewModel();
