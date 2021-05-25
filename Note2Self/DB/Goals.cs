@@ -11,6 +11,6 @@ namespace Note2Self.DB
         public int GoalId { get; set; }
         public int NoteId { get; set; }
         public int Description { get; set; }
-        public Notes Notes;
+        public Notes Notes { get; set; }
     }
 }
