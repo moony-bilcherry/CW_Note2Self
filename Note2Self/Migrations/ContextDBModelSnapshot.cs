@@ -21,25 +21,7 @@ namespace Note2Self.Migrations
 
             modelBuilder.Entity("Note2Self.DB.Goals", b =>
                 {
-                    b.Property<int>("GoalId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Description")
-                        .HasColumnType("int");
-
-                    b.Property<int>("NoteId")
-                        .HasColumnType("int");
-
-                    b.HasKey("GoalId");
-
-                    b.ToTable("Goals");
-                });
-
-            modelBuilder.Entity("Note2Self.DB.Moods", b =>
-                {
-                    b.Property<int>("MoodId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -47,38 +29,36 @@ namespace Note2Self.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("MoodId");
+                    b.Property<int>("NotesId")
+                        .HasColumnType("int");
 
-                    b.ToTable("Moods");
+                    b.HasKey("Id");
+
+                    b.HasIndex("NotesId");
+
+                    b.ToTable("Goals");
                 });
 
             modelBuilder.Entity("Note2Self.DB.Notes", b =>
                 {
-                    b.Property<int>("NoteId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime>("Day")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GoalId")
+                    b.Property<int>("Mood")
                         .HasColumnType("int");
 
-                    b.Property<int?>("MoodId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NoteData")
+                    b.Property<string>("Text")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.HasKey("NoteId");
-
-                    b.HasIndex("GoalId");
-
-                    b.HasIndex("MoodId");
+                    b.HasKey("Id");
 
                     b.HasIndex("UserId");
 
@@ -87,7 +67,7 @@ namespace Note2Self.Migrations
 
             modelBuilder.Entity("Note2Self.DB.Users", b =>
                 {
-                    b.Property<int>("UserId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
@@ -98,35 +78,36 @@ namespace Note2Self.Migrations
                     b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserId");
+                    b.HasKey("Id");
 
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Note2Self.DB.Goals", b =>
+                {
+                    b.HasOne("Note2Self.DB.Notes", "Notes")
+                        .WithMany("Goals")
+                        .HasForeignKey("NotesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Notes");
+                });
+
             modelBuilder.Entity("Note2Self.DB.Notes", b =>
                 {
-                    b.HasOne("Note2Self.DB.Goals", "Goal")
-                        .WithMany()
-                        .HasForeignKey("GoalId");
-
-                    b.HasOne("Note2Self.DB.Moods", "Mood")
-                        .WithMany("NotesList")
-                        .HasForeignKey("MoodId");
-
                     b.HasOne("Note2Self.DB.Users", "User")
                         .WithMany("NotesList")
-                        .HasForeignKey("UserId");
-
-                    b.Navigation("Goal");
-
-                    b.Navigation("Mood");
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Note2Self.DB.Moods", b =>
+            modelBuilder.Entity("Note2Self.DB.Notes", b =>
                 {
-                    b.Navigation("NotesList");
+                    b.Navigation("Goals");
                 });
 
             modelBuilder.Entity("Note2Self.DB.Users", b =>

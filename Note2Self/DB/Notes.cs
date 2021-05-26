@@ -9,11 +9,12 @@ namespace Note2Self.DB
 {
     class Notes
     {
+        public int Id { get; set; }
+        public string Text { get; set; }
+        public DateTime Day { get; set; }
+        public PossibleMoods Mood { get; set; }
+        public int UserId { get; set; }
         public Users User { get; set; }
-        public int NoteId { get; set; }
-        public DateTime DateCreated { get; set; }
-        public string NoteData { get; set; }
-        public Moods Mood { get; set; }
-        public Goals Goal { get; set; }
+        public List<Goals> Goals { get; set; }
     }
 }

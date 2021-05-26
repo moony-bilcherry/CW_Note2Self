@@ -8,9 +8,9 @@ namespace Note2Self.DB
 {
     class Goals
     {
-        public int GoalId { get; set; }
-        public int NoteId { get; set; }
-        public int Description { get; set; }
+        public int Id { get; set; }
+        public string Description { get; set; }
+        public int NotesId { get; set; }
         public Notes Notes { get; set; }
     }
 }

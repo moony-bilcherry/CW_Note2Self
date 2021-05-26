@@ -8,7 +8,7 @@ namespace Note2Self.DB
 {
     class Users
     {
-        public int UserId { get; set; }
+        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public List<Notes> NotesList { get; set; }
