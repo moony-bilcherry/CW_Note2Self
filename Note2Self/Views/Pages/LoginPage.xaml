@@ -50,6 +50,7 @@
 
                             <Button Content="Войти"
                                     HorizontalAlignment="Center"
+                                    local:IsBusyProperty.Value="{Binding LoginIsRunning}"
                                     Command="{Binding AuthorizeCommand}"/>
                         </StackPanel>
                     </Border>

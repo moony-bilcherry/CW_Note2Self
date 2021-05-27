@@ -44,8 +44,9 @@ namespace Note2Self
         {
             // Создание команд 
             RegisterCommand = new RelayCommand(async () => await Register());
-            RegisterCommand = new RelayCommand(async () => await Authorize());
+            AuthorizeCommand = new RelayCommand(async () => await Authorize());
 
+            OnPropertyChanged(nameof(AuthorizeCommand));
             OnPropertyChanged(nameof(RegisterCommand));
         }
 
@@ -62,7 +63,7 @@ namespace Note2Self
                     MessageBox.Show("Убедитесь, что правильно заполнили поля");
                     return;
                 }
-                MessageBox.Show("Vse harasho!!");
+                MessageBox.Show("ЯЯЯ авторизация!! LoginIsRunning: " + LoginIsRunning.ToString());
             });
         }
 
@@ -79,7 +80,7 @@ namespace Note2Self
                 }
 
                 //MessageBox.Show(DataWorker.CreateUser(Login, Password));
-                MessageBox.Show("Vse harasho!!");
+                MessageBox.Show("ЯЯЯ регистрация!!");
             });
         }
 
