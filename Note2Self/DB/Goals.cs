@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Note2Self.DB
 {
-    class Goals
+    public class Goals
     {
         public int Id { get; set; }
         public string Description { get; set; }

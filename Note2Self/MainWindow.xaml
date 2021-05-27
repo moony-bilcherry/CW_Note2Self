@@ -11,7 +11,7 @@
         MinWidth="{Binding WindowMinWidth}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True"
-        Title="Welcome, Friend!" Height="450" Width="800">
+        Title="Welcome, Friend!" Height="600" Width="900">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">

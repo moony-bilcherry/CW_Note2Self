@@ -10,7 +10,7 @@ namespace Note2Self
     /// <summary>
     /// Базовый класс для всех страниц
     /// </summary>
-    class BasePage<VM> : Page
+    public class BasePage<VM> : Page
         where VM : BaseViewModel, new()
     {
         #region Приватные поля
@@ -28,7 +28,6 @@ namespace Note2Self
         /// <summary>
         /// Вьюмодель, связанная с этой страницей
         /// </summary>
-        
         public VM ViewModel 
         { 
             get 
@@ -54,8 +53,10 @@ namespace Note2Self
 
         public BasePage()
         {
-            this.Loaded += BasePage_Loaded;
-            this.DataContext = new VM();
+            //this.Loaded += BasePage_Loaded;
+
+            // Устанавливаем вьюмодель
+            this.ViewModel = new VM();
         }
 
         private void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)

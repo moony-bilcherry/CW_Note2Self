@@ -37,7 +37,7 @@
                             <TextBlock Text="Логин:"
                                        Foreground="{StaticResource GreyBrush}"
                                        FontSize="{StaticResource FontSizeSmall}"/>
-                            <TextBox/>
+                            <TextBox Text="{Binding Login}"/>
 
                             <TextBlock Text="Пароль:"
                                        Foreground="{StaticResource GreyBrush}"
@@ -46,10 +46,11 @@
                             <!--<PasswordBox Margin="0 0 0 20"/>-->
                             <local:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}"
                                                        x:Name="passwordTextBox"
-                                                       Margin="0 0 0 20"/>
+                                                       Margin="0 0 0 10"/>
 
                             <Button Content="Дальше"
-                                    HorizontalAlignment="Center"/>
+                                    HorizontalAlignment="Center"
+                                    Command="{Binding RegisterCommand}"/>
                         </StackPanel>
                     </Border>
                     <Button Content="У меня уже есть аккаунт"

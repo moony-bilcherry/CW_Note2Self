@@ -7,14 +7,45 @@ using System.Threading.Tasks;
 
 namespace Note2Self
 {
-    class DataWorker
+    public static class DataWorker
     {
-        #region Добавление
+        #region Списки
+
+        // Получить всех пользователей
+        public static List<Users> GetAllUsers()
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                return db.Users.ToList();
+            }
+        }
+
+        // Получить все записки
+        public static List<Notes> GetAllNotes()
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                return db.Notes.ToList();
+            }
+        }
+
+        // Получить все цели
+        public static List<Goals> GetAllGoals()
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                return db.Goals.ToList();
+            }
+        }
+
+        #endregion
+
+        #region Users
 
         /// <summary>
         /// Добавление нового пользователя
         /// </summary>
-        public string CreateUser(string username, string password)
+        public static string CreateUser(string username, string password)
         {
             using (ContextDB db = new ContextDB())
             {
@@ -22,19 +53,24 @@ namespace Note2Self
                 /// Если пользователя с таким логином нет, добавляем его
                 /// </summary>
                 if (db.Users.Any(el => el.Username == username))
-                    return "Такой пользователь уже есть";
+                    return ("Пользователь с логином " + username + " уже есть");
 
                 Users newUser = new Users { Username = username, Password = password };
                 db.Users.Add(newUser);
                 db.SaveChanges();
-                return "Пользователь успешно добавлен";
+                return "Пользователь " + username + " успешно зарегистрирован";
             }
-        }
+        }        
 
+
+
+        #endregion
+
+        #region Записки ?????????????
         /// <summary>
         /// Добавление новой записки
         /// </summary>
-        public string CreateNote( DateTime day, string text, PossibleMoods mood)
+        public static string CreateNote(DateTime day, string text, PossibleMoods mood)
         {
             using (ContextDB db = new ContextDB())
             {
@@ -52,24 +88,76 @@ namespace Note2Self
         }
 
         /// <summary>
-        /// Добавление новой цели
+        /// Изменение записки
         /// </summary>
-        public string CreateGoal(string text)
+        public static string EditNote(DateTime day, string text, PossibleMoods mood)
         {
             using (ContextDB db = new ContextDB())
             {
-                Goals newGoal = new Goals { Description = text};
+                Notes newNote = new Notes { Day = day, Text = text, Mood = mood };
+                db.Notes.Add(newNote);
+                db.SaveChanges();
+                return "Записка успешно добавлена";
+            }
+        }
+
+        /// <summary>
+        /// Удаление записки
+        /// </summary>
+        public static string DeleteNote(Notes note)
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                db.Notes.Remove(note);
+                db.SaveChanges();
+                return ("Записка за " + note.Day.ToString() + " успешно удалена");
+            }
+        }
+
+        #endregion
+
+        #region Цели
+
+        /// <summary>
+        /// Добавление новой цели
+        /// </summary>
+        public static string CreateGoal(string text)
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                Goals newGoal = new Goals { Description = text };
                 db.Goals.Add(newGoal);
                 db.SaveChanges();
                 return "Цель успешно добавлена";
             }
         }
 
-        #endregion
+        /// <summary>
+        /// Изменение цели
+        /// </summary>
+        public static string EditGoal(string text)
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                Goals newGoal = new Goals { Description = text };
+                db.Goals.Add(newGoal);
+                db.SaveChanges();
+                return "Цель успешно добавлена";
+            }
+        }
 
-        #region Изменение
-
-
+        /// <summary>
+        /// Удаление цели
+        /// </summary>
+        public static string DeleteGoal(Goals goal)
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                db.Goals.Remove(goal);
+                db.SaveChanges();
+                return ("Цель успешно удалена");
+            }
+        }
 
         #endregion
 

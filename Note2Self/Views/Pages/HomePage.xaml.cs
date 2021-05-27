@@ -16,14 +16,13 @@ using System.Windows.Shapes;
 namespace Note2Self
 {
     /// <summary>
-    /// Логика взаимодействия для LoginPage.xaml
+    /// Логика взаимодействия для HomePage.xaml
     /// </summary>
-    public partial class LoginPage : /*Page*/ BasePage<LoginViewModel>
+    public partial class HomePage : Page
     {
-        public LoginPage()
+        public HomePage()
         {
             InitializeComponent();
-            //this.DataContext = new LoginViewModel();
         }
     }
 }

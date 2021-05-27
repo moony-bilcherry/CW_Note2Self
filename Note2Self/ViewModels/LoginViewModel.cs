@@ -1,4 +1,5 @@
 ﻿using Note2Self.Commands;
+using Note2Self.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,7 @@ namespace Note2Self
         #region Команды
 
         public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
 
         #endregion
 
@@ -37,8 +39,19 @@ namespace Note2Self
 
         public LoginViewModel()
         {
-            // Создание команд
-            //LoginCommand = new RelayCommand(() => );
+            // Создание команд 
+            RegisterCommand = new RelayCommand(() =>
+            {
+                if(Login == null || Login.Replace(" ", "").Length == 0)
+                {
+                    MessageBox.Show("Убедитесь, что правильно заполнили поля");
+                }
+                MessageBox.Show(DataWorker.CreateUser(Login, Password));
+            });
+
+
+
+            OnPropertyChanged(nameof(RegisterCommand));
         }
 
         #endregion
