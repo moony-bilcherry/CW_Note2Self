@@ -1,5 +1,4 @@
-﻿using Note2Self.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Note2Self
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для MenuControl.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MenuControl : UserControl
     {
-        public MainWindow()
+        public MenuControl()
         {
             InitializeComponent();
-            DataContext = new WindowViewModel(this);
         }
     }
 }

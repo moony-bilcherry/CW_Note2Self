@@ -1,5 +1,4 @@
-﻿using Note2Self.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Note2Self
+namespace Note2Self.Views
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для GoalsContol.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class GoalsContol : UserControl
     {
-        public MainWindow()
+        public GoalsContol()
         {
             InitializeComponent();
-            DataContext = new WindowViewModel(this);
         }
     }
 }

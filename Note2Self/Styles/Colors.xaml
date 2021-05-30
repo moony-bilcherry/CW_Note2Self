@@ -4,6 +4,9 @@
     <Color x:Key="OffWhite" >#F5F5F5</Color>
     <SolidColorBrush x:Key="OffWhiteBrush" Color="{StaticResource OffWhite}"/>
 
+    <Color x:Key="Platinum" >#ebebeb</Color>
+    <SolidColorBrush x:Key="PlatinumBrush" Color="{StaticResource Platinum}"/>
+
     <Color x:Key="Silver" >#A7A2A9</Color>
     <SolidColorBrush x:Key="SilverBrush" Color="{StaticResource Silver}"/>
 

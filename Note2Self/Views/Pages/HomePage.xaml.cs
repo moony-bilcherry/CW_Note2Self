@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Note2Self.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Note2Self
     /// <summary>
     /// Логика взаимодействия для HomePage.xaml
     /// </summary>
-    public partial class HomePage : Page
+    public partial class HomePage : BasePage<HomeViewModel>
     {
         public HomePage()
         {

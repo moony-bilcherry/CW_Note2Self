@@ -42,7 +42,7 @@ namespace Note2Self.Views
         {
             try
             {
-                this.WindowState = WindowState.Minimized;
+                WindowState = WindowState.Minimized;
             }
             catch (Exception ex)
             {

@@ -10,34 +10,22 @@ namespace Note2Self.Commands
 {
     public class UpdateViewCommand : ICommand
     {
-        private MainViewModel viewModel;
+        private HomeViewModel viewModel;
 
-        public UpdateViewCommand(MainViewModel viewModel)
-        {
-            this.viewModel = viewModel;
-        }
+        public UpdateViewCommand(HomeViewModel viewModel) => this.viewModel = viewModel;
 
         public event EventHandler CanExecuteChanged;
 
-        public bool CanExecute(object parameter)
-        {
-            return true;
-        }
+        public bool CanExecute(object parameter) => true;
+ 
 
-        public void Execute(object parameter)
+        public void Execute(object parameter) 
+            => viewModel.SelectedViewModel = parameter.ToString() switch
         {
-            //if(parameter.ToString() == "Home")
-            //{
-            //    viewModel.SelectedViewModel = new HomeViewModel();
-            //}
-            if (parameter.ToString() == "Register")
-            {
-                viewModel.SelectedViewModel = new RegisterViewModel();
-            }
-            if (parameter.ToString() == "Welcome")
-            {
-                viewModel.SelectedViewModel = new WelcomeViewModel();
-            }
-        }
+            "Calendar" => new CalendarViewModel(),
+            "Notes" => new NotesViewModel(),
+            "Goals" => new GoalsViewModel(),
+            _ => throw new ArgumentException($"{nameof(parameter)}: {parameter}")
+        };
     }
 }

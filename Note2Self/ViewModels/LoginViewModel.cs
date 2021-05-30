@@ -1,5 +1,6 @@
 ﻿using Note2Self.Commands;
 using Note2Self.DB;
+using Note2Self.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace Note2Self
 
         public ICommand AuthorizeCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
+        public ICommand TestCommand { get; set; }
 
         #endregion
 
@@ -54,26 +56,28 @@ namespace Note2Self
 
         public async Task Authorize()
         {
-            await RunCommand(() => this.LoginIsRunning, async () =>
+            await RunCommand(() => LoginIsRunning, async () =>
             {
-                await Task.Delay(3000);
+                //await Task.Delay(3000);
 
-                if (Login == null || Login.Replace(" ", "").Length == 0 || Password == null || Password.Replace(" ", "").Length == 0)
+                if (Login == null || String.IsNullOrWhiteSpace(Login) || Password == null || String.IsNullOrWhiteSpace(Password))
                 {
                     MessageBox.Show("Убедитесь, что правильно заполнили поля");
                     return;
                 }
-                MessageBox.Show("ЯЯЯ авторизация!! LoginIsRunning: " + LoginIsRunning.ToString());
+                //MessageBox.Show("ЯЯЯ авторизация!! LoginIsRunning: " + LoginIsRunning.ToString());
+                ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Home;
+                await Task.Delay(3000);
             });
         }
 
         public async Task Register()
         {
-            await RunCommand(() => this.RegisterIsRunning, async () =>
+            await RunCommand(() => RegisterIsRunning, async () =>
             {
                 await Task.Delay(3000);
 
-                if (Login == null || Login.Replace(" ", "").Length == 0 || Password == null || Password.Replace(" ", "").Length == 0)
+                if (Login == null || String.IsNullOrWhiteSpace(Login) || Password == null || String.IsNullOrWhiteSpace(Password))
                 {
                     MessageBox.Show("Убедитесь, что правильно заполнили поля");
                     return;

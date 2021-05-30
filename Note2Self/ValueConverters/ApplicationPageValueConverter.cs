@@ -21,6 +21,9 @@ namespace Note2Self
                 case ApplicationPage.Login: 
                     return new LoginPage();
 
+                case ApplicationPage.Home:
+                    return new HomePage();
+
                 default:
                     Debugger.Break();
                     return null;

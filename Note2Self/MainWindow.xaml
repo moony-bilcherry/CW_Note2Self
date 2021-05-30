@@ -11,7 +11,7 @@
         MinWidth="{Binding WindowMinWidth}"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None" AllowsTransparency="True"
-        Title="Welcome, Friend!" Height="600" Width="900">
+        Title="Welcome, Friend!" Height="600" Width="1000">
 
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -105,12 +105,6 @@
                                     
                                     <!-- Контент -->
                                     <Border Grid.Row="2" Padding="{Binding InnerContentPaddingThickness}">
-                                        <!--<Border.Background>
-                                            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                                                <GradientStop Color="#8980F5" Offset="0.0"/>
-                                                <GradientStop Color="#2EC4B6" Offset="1"/>
-                                            </LinearGradientBrush>
-                                        </Border.Background>-->
                                         <ContentPresenter Content="{TemplateBinding Content}"/>
                                     </Border>
                                 </Grid>
@@ -131,7 +125,17 @@
             />
     </WindowChrome.WindowChrome>
 
-    <Grid>
-        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
-    </Grid>
+    <Border>
+        <!-- Фон с градиентом-->
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="#8980F5" Offset="0.0"/>
+                <GradientStop Color="#2EC4B6" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+        <Grid>
+            <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+        </Grid>
+    </Border>
+    
 </Window>

@@ -44,7 +44,7 @@ namespace Note2Self
                 _viewModel = value;
 
                 // Устанавливаем контект данных
-                this.DataContext = _viewModel;
+                DataContext = _viewModel;
             }
         }
 
@@ -56,7 +56,7 @@ namespace Note2Self
             //this.Loaded += BasePage_Loaded;
 
             // Устанавливаем вьюмодель
-            this.ViewModel = new VM();
+            ViewModel = new VM();
         }
 
         private void BasePage_Loaded(object sender, System.Windows.RoutedEventArgs e)

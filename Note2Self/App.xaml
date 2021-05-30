@@ -4,23 +4,29 @@
              xmlns:local="clr-namespace:Note2Self"
              xmlns:viewmodels="clr-namespace:Note2Self.ViewModels"
              xmlns:views="clr-namespace:Note2Self.Views"
-             StartupUri="MainWindow.xaml">
+			 
+             StartupUri="Views/Pages/HomePage.xaml"
+			 >
     <Application.Resources>
         <ResourceDictionary>
 
-            <!--<DataTemplate DataType="{x:Type viewmodels:RegisterViewModel}">
-                <views:Register/>
+            <DataTemplate DataType="{x:Type viewmodels:CalendarViewModel}">
+                <views:CalendarControl/>
             </DataTemplate>
             
-            <DataTemplate DataType="{x:Type viewmodels:WelcomeViewModel}">
-                <views:Welcome/>
+            <DataTemplate DataType="{x:Type viewmodels:NotesViewModel}">
+                <views:NotesControl/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-                <views:Home/>
-            </DataTemplate>-->
+            <DataTemplate DataType="{x:Type viewmodels:GoalsViewModel}">
+                <views:GoalsContol/>
+            </DataTemplate>
 
-            <ResourceDictionary.MergedDictionaries>
+			<DataTemplate DataType="{x:Type viewmodels:SelectedDateViewModel}">
+				<views:SelectedDayControl/>
+			</DataTemplate>
+
+			<ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/Colors.xaml"/>
                 <ResourceDictionary Source="Styles/Fonts.xaml"/>
                 <ResourceDictionary Source="Styles/Texts.xaml"/>

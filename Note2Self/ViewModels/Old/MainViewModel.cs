@@ -30,7 +30,7 @@ namespace Note2Self.ViewModels
 
         public MainViewModel()
         {
-            UpdateViewCommand = new UpdateViewCommand(this);
+            
         }
     }
 }
