@@ -5,11 +5,10 @@
              xmlns:viewmodels="clr-namespace:Note2Self.ViewModels"
              xmlns:views="clr-namespace:Note2Self.Views"
 			 
-             StartupUri="Views/Pages/HomePage.xaml"
+             StartupUri="MainWindow.xaml"
 			 >
     <Application.Resources>
         <ResourceDictionary>
-
             <DataTemplate DataType="{x:Type viewmodels:CalendarViewModel}">
                 <views:CalendarControl/>
             </DataTemplate>

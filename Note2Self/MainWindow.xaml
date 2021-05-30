@@ -134,7 +134,10 @@
             </LinearGradientBrush>
         </Border.Background>
         <Grid>
-            <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>
+            <!--<Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}"/>-->
+            <ContentControl x:Name="MainContentControl"
+                            Content="{Binding SelectedViewModel}">
+            </ContentControl>
         </Grid>
     </Border>
     

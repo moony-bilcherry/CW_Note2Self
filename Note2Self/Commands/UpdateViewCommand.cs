@@ -25,6 +25,7 @@ namespace Note2Self.Commands
             "Calendar" => new CalendarViewModel(),
             "Notes" => new NotesViewModel(),
             "Goals" => new GoalsViewModel(),
+            "Register" => new RegisterViewModel(),
             _ => throw new ArgumentException($"{nameof(parameter)}: {parameter}")
         };
     }

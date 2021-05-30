@@ -9,15 +9,28 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 
-namespace Note2Self
+namespace Note2Self.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        
+        #region Для переключения вьюх
+
+        private UpdateViewCommand _updateView;
+        public UpdateViewCommand UpdateView { get => _updateView; set => Set(ref _updateView, value); }
+
+        private BaseViewModel _selectedViewModel;
+        public BaseViewModel SelectedViewModel
+        {
+            get => _selectedViewModel;
+            set => Set(ref _selectedViewModel, value);
+        }
+
+
+        #endregion
 
         #region Приватные поля
 
-        
+
 
         #endregion
 
@@ -44,6 +57,9 @@ namespace Note2Self
 
         public LoginViewModel()
         {
+            SelectedViewModel = new CalendarViewModel();
+            UpdateView = new UpdateViewCommand(this);
+
             // Создание команд 
             RegisterCommand = new RelayCommand(async () => await Register());
             AuthorizeCommand = new RelayCommand(async () => await Authorize());
