@@ -49,7 +49,6 @@ namespace Note2Self.ViewModels
 
         public ICommand AuthorizeCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
-        public ICommand TestCommand { get; set; }
 
         #endregion
 
@@ -57,8 +56,13 @@ namespace Note2Self.ViewModels
 
         public LoginViewModel()
         {
-            
-            UpdateView = new UpdateViewCommand(this);
+            var factories = new Dictionary<string, Func<BaseViewModel>>
+            {
+                {"Register", () => new RegisterViewModel() },
+                {"Authorize", () => new HomeViewModel() }
+            };
+
+            UpdateView = new UpdateViewCommand(this, factories);
 
             // Создание команд 
             RegisterCommand = new RelayCommand(async () => await Register());
@@ -76,14 +80,15 @@ namespace Note2Self.ViewModels
             {
                 //await Task.Delay(3000);
 
-                if (Login == null || String.IsNullOrWhiteSpace(Login) || Password == null || String.IsNullOrWhiteSpace(Password))
-                {
-                    MessageBox.Show("Убедитесь, что правильно заполнили поля");
-                    return;
-                }
-                //MessageBox.Show("ЯЯЯ авторизация!! LoginIsRunning: " + LoginIsRunning.ToString());
+                //if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
+                //{
+                //    MessageBox.Show("Убедитесь, что правильно заполнили поля");
+                //    return;
+                //}
+                MessageBox.Show("КНОПКА ВОЙТИ");
                 //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Home;
-                await Task.Delay(3000);
+                await Task.Delay(1000);
+                UpdateView.Execute("Authorize");
             });
         }
 
@@ -91,16 +96,12 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => RegisterIsRunning, async () =>
             {
-                await Task.Delay(3000);
-
-                if (Login == null || String.IsNullOrWhiteSpace(Login) || Password == null || String.IsNullOrWhiteSpace(Password))
-                {
-                    MessageBox.Show("Убедитесь, что правильно заполнили поля");
-                    return;
-                }
-
                 //MessageBox.Show(DataWorker.CreateUser(Login, Password));
-                MessageBox.Show("ЯЯЯ регистрация!!");
+                MessageBox.Show("ХАЧЮ СОЗДАТЬ АКК");
+                await Task.Delay(1000);
+                //SelectedViewModel = new RegisterViewModel();
+                //UpdateView = new UpdateViewCommand(this, "Register");
+                UpdateView.Execute("Register");
             });
         }
 

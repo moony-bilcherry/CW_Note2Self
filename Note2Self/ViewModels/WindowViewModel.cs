@@ -157,8 +157,8 @@ namespace Note2Self.ViewModels
                 WindowResized();
             };
 
-            SelectedViewModel = new LoginViewModel();
-            UpdateView = new UpdateViewCommand(this);
+            SelectedViewModel = new HomeViewModel();
+            //UpdateView = new UpdateViewCommand(this);
         }
 
         #endregion

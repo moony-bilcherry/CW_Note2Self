@@ -18,8 +18,14 @@ namespace Note2Self.ViewModels
 
         public HomeViewModel()
         {
+            var factories = new Dictionary<string, Func<BaseViewModel>>
+            {
+                {"Calendar", () => new CalendarViewModel() },
+                {"Notes", () => new NotesViewModel() },
+                {"Goals", () => new GoalsViewModel() }
+            };
             SelectedViewModel = new CalendarViewModel();
-            UpdateView = new UpdateViewCommand(this);
+            UpdateView = new UpdateViewCommand(this, factories);
         }
     }
 }
