@@ -16,7 +16,8 @@ namespace Note2Self.ViewModels
         #region Для переключения вьюх
 
         private UpdateViewCommand _updateView;
-        public UpdateViewCommand UpdateView { get => _updateView; set => Set(ref _updateView, value); }
+        public UpdateViewCommand UpdateView { get => _updateView; 
+            set => Set(ref _updateView, value); }
 
         private BaseViewModel _selectedViewModel;
         public BaseViewModel SelectedViewModel
@@ -56,14 +57,7 @@ namespace Note2Self.ViewModels
 
         public LoginViewModel()
         {
-            var factories = new Dictionary<string, Func<BaseViewModel>>
-            {
-                {"Register", () => new RegisterViewModel() },
-                {"Authorize", () => new HomeViewModel() }
-            };
-
-            UpdateView = new UpdateViewCommand(this, factories);
-
+    
             // Создание команд 
             RegisterCommand = new RelayCommand(async () => await Register());
             AuthorizeCommand = new RelayCommand(async () => await Authorize());
@@ -88,7 +82,7 @@ namespace Note2Self.ViewModels
                 MessageBox.Show("КНОПКА ВОЙТИ");
                 //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Home;
                 await Task.Delay(1000);
-                UpdateView.Execute("Authorize");
+                UpdateView.Execute("Home");
             });
         }
 

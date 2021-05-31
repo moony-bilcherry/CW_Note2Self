@@ -55,7 +55,8 @@
                     <Button Content="Назад к авторизации"
                             Style="{StaticResource TextButton}"
                             HorizontalAlignment="Center"
-                            Command="{Binding GoBackCommand}"/>
+                            Command="{Binding GoBackCommand}"
+                            CommandParameter="Login"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

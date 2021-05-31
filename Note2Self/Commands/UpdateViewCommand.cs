@@ -22,17 +22,14 @@ namespace Note2Self.Commands
 
         public void Execute(object parameter)
         {
-            //var t = Type.GetType($"{parameter}ViewModel");
+            //var t = Type.GetType($"{parameter}ViewAModel");
             if (factories.TryGetValue(parameter.ToString(), out var factory))
             {
                 viewModel.SelectedViewModel = factory();
             }
-            else throw ArgumentException($"{nameof(parameter)} был {parameter}");
+            else throw new ArgumentException($"{nameof(parameter)} был {parameter}");
         }
 
-        private Exception ArgumentException(string v)
-        {
-            throw new NotImplementedException();
-        }
+ 
     }
 }

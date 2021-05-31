@@ -24,7 +24,7 @@ namespace Note2Self.Views
         public LoginControl()
         {
             InitializeComponent();
-            this.DataContext = new LoginViewModel();
+ 
         }
     }
 }

@@ -48,7 +48,8 @@
                 <StackPanel Orientation="Horizontal"
                                 Grid.Column="2">
                     <Button Content="Выйти"
-                                Style="{StaticResource MenuButton}"/>
+                                Style="{StaticResource MenuButton}"
+                            Command="{Binding UpdateView}" CommandParameter="Login"/>
                 </StackPanel>
             </Grid>
         </Border>

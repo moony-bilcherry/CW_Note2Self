@@ -9,6 +9,15 @@
 			 >
     <Application.Resources>
         <ResourceDictionary>
+
+            <DataTemplate DataType="{x:Type viewmodels:GoalsViewModel}">
+                <views:GoalsContol/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewmodels:SelectedDateViewModel}">
+                <views:SelectedDayControl/>
+            </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
                 <views:LoginControl/>
             </DataTemplate>
@@ -29,13 +38,7 @@
                 <views:NotesControl/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewmodels:GoalsViewModel}">
-                <views:GoalsContol/>
-            </DataTemplate>
-
-			<DataTemplate DataType="{x:Type viewmodels:SelectedDateViewModel}">
-				<views:SelectedDayControl/>
-			</DataTemplate>
+        
 
 			<ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/Colors.xaml"/>

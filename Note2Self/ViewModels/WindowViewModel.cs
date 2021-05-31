@@ -157,8 +157,52 @@ namespace Note2Self.ViewModels
                 WindowResized();
             };
 
-            SelectedViewModel = new HomeViewModel();
-            //UpdateView = new UpdateViewCommand(this);
+
+
+
+            BaseViewModel RegisterFactory() =>
+                new RegisterViewModel()
+                {
+                    UpdateView = new UpdateViewCommand(this, new Dictionary<string, Func<BaseViewModel>>
+                      {
+                        { "Register", () => RegisterFactory() },
+                        { "Home", () => HomeFactory() },
+                        { "Login", () => LoginFactory() }
+                      })
+
+                };
+
+
+
+            BaseViewModel HomeFactory() =>
+                  new HomeViewModel()
+                  {
+                      UpdateView = new UpdateViewCommand(this, new Dictionary<string, Func<BaseViewModel>>
+                      {
+                        { "Register", () => RegisterFactory() },
+                        { "Home", () => HomeFactory() },
+                        { "Login", () => LoginFactory() }
+                      })
+
+                  };
+
+
+            BaseViewModel LoginFactory()
+                  => new LoginViewModel()
+                  {
+                      UpdateView = new UpdateViewCommand(this, new Dictionary<string, Func<BaseViewModel>>
+                      {
+                        { "Register", () => RegisterFactory() },
+                        { "Home", () => HomeFactory() },
+                        { "Login", () => LoginFactory() }
+                      })
+
+                  };
+
+
+            SelectedViewModel = LoginFactory();
+
+
         }
 
         #endregion

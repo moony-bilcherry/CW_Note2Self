@@ -50,13 +50,13 @@
                             <Button Content="Войти"
                                     HorizontalAlignment="Center"
                                     base:IsBusyProperty.Value="{Binding LoginIsRunning, Mode=TwoWay}"
-                                    Command="{Binding AuthorizeCommand}"/>
+                                    Command="{Binding AuthorizeCommand}" CommandParameter="Home"/>
                         </StackPanel>
                     </Border>
                     <Button Content="У меня еще нет аккаунта"
                             Style="{StaticResource TextButton}"
                             HorizontalAlignment="Center"
-                            Command="{Binding RegisterCommand}"/>
+                            Command="{Binding RegisterCommand}" CommandParameter="Register"/>
                 </StackPanel>
             </ScrollViewer>
         </Grid>

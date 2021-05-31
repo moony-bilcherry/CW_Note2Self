@@ -13,7 +13,7 @@ namespace Note2Self.ViewModels
         public UpdateViewCommand UpdateView { get => _updateView; set => Set(ref _updateView, value); }
 
         private BaseViewModel _selectedViewModel;
-        public BaseViewModel SelectedViewModel { get => _selectedViewModel;
+        public BaseViewModel SelectedViewModel {get => _selectedViewModel;
             set => Set(ref _selectedViewModel, value); }
 
         public HomeViewModel()
@@ -24,8 +24,11 @@ namespace Note2Self.ViewModels
                 {"Notes", () => new NotesViewModel() },
                 {"Goals", () => new GoalsViewModel() }
             };
-            SelectedViewModel = new CalendarViewModel();
+           
             UpdateView = new UpdateViewCommand(this, factories);
+
+
+            SelectedViewModel = new CalendarViewModel();
         }
     }
 }

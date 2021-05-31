@@ -9,20 +9,16 @@ using System.Windows.Input;
 
 namespace Note2Self.ViewModels
 {
-    public class RegisterViewModel : BaseViewModel, INestedViewModel
+    public class RegisterViewModel : BaseViewModel 
     {
         #region Для переключения вьюх
 
         private UpdateViewCommand _updateView;
-        public UpdateViewCommand UpdateView { get => _updateView; set => Set(ref _updateView, value); }
+        public UpdateViewCommand UpdateView { 
+            get => _updateView; 
+            set => Set(ref _updateView, value); }
 
-        private BaseViewModel _selectedViewModel;
-        public BaseViewModel SelectedViewModel
-        {
-            get => _selectedViewModel;
-            set => Set(ref _selectedViewModel, value);
-        }
-
+ 
         #endregion
 
         #region Приватные поля
@@ -74,6 +70,7 @@ namespace Note2Self.ViewModels
             {
                 MessageBox.Show("ЧЕРЕЗ СЕКУНДУ ПОЙДЕМ НАЗАД");
                 await Task.Delay(1000);
+                UpdateView.Execute("Login");
             });
         }
     }

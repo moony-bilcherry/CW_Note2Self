@@ -23,8 +23,10 @@ namespace Note2Self.Views
     {
         public HomeControl()
         {
+            
+
             InitializeComponent();
-            this.DataContext = new HomeViewModel();
+           
         }
     }
 }
