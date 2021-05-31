@@ -31,16 +31,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\Register.xaml.cs">
-      <DependentUpon>Register.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Welcome.xaml.cs">
-      <SubType>Code</SubType>
-      <DependentUpon>Welcome.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <Page Update="Styles\Texts.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
@@ -53,12 +43,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Styles\Ellipses.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Register.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\Welcome.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

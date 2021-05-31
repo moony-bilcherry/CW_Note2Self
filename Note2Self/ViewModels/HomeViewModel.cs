@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Note2Self.ViewModels
 {
-    public class HomeViewModel : BaseViewModel
+    public class HomeViewModel : BaseViewModel, INestedViewModel
     {
         private UpdateViewCommand _updateView;
         public UpdateViewCommand UpdateView { get => _updateView; set => Set(ref _updateView, value); }

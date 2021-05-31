@@ -18,11 +18,11 @@ namespace Note2Self
             // Находит нужную страницу
             switch ((ApplicationPage)value)
             {
-                case ApplicationPage.Login: 
-                    return new LoginPage();
+                //case ApplicationPage.Login: 
+                //    return new LoginPage();
 
-                case ApplicationPage.Home:
-                    return new HomePage();
+                //case ApplicationPage.Home:
+                //    return new HomePage();
 
                 default:
                     Debugger.Break();

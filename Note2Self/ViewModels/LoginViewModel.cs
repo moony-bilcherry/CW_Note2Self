@@ -11,7 +11,7 @@ using System.Windows.Input;
 
 namespace Note2Self.ViewModels
 {
-    public class LoginViewModel : BaseViewModel
+    public class LoginViewModel : BaseViewModel, INestedViewModel
     {
         #region Для переключения вьюх
 
@@ -57,7 +57,7 @@ namespace Note2Self.ViewModels
 
         public LoginViewModel()
         {
-            SelectedViewModel = new CalendarViewModel();
+            
             UpdateView = new UpdateViewCommand(this);
 
             // Создание команд 
@@ -82,7 +82,7 @@ namespace Note2Self.ViewModels
                     return;
                 }
                 //MessageBox.Show("ЯЯЯ авторизация!! LoginIsRunning: " + LoginIsRunning.ToString());
-                ((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Home;
+                //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Home;
                 await Task.Delay(3000);
             });
         }

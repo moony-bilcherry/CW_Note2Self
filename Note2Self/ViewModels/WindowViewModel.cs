@@ -9,8 +9,18 @@ using System.Windows.Input;
 
 namespace Note2Self.ViewModels
 {
-    public class WindowViewModel : BaseViewModel
+    public class WindowViewModel : BaseViewModel, INestedViewModel
     {
+        private UpdateViewCommand _updateView;
+        public UpdateViewCommand UpdateView { get => _updateView; set => Set(ref _updateView, value); }
+
+        private BaseViewModel _selectedViewModel;
+        public BaseViewModel SelectedViewModel
+        {
+            get => _selectedViewModel;
+            set => Set(ref _selectedViewModel, value);
+        }
+
         #region Приватные поля
 
         private Window _window;
@@ -101,7 +111,7 @@ namespace Note2Self.ViewModels
         /// <summary>
         /// Текущая страница в приложении
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        //public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
@@ -146,6 +156,9 @@ namespace Note2Self.ViewModels
                 // Запуск событий изменения размера окна
                 WindowResized();
             };
+
+            SelectedViewModel = new LoginViewModel();
+            UpdateView = new UpdateViewCommand(this);
         }
 
         #endregion

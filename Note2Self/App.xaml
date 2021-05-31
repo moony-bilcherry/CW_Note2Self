@@ -9,6 +9,14 @@
 			 >
     <Application.Resources>
         <ResourceDictionary>
+            <DataTemplate DataType="{x:Type viewmodels:LoginViewModel}">
+                <views:LoginControl/>
+            </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
+                <views:HomeControl/>
+            </DataTemplate>
+            
             <DataTemplate DataType="{x:Type viewmodels:CalendarViewModel}">
                 <views:CalendarControl/>
             </DataTemplate>

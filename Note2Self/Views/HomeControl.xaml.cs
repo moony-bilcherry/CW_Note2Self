@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Note2Self.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,13 +17,14 @@ using System.Windows.Shapes;
 namespace Note2Self.Views
 {
     /// <summary>
-    /// Логика взаимодействия для Home.xaml
+    /// Логика взаимодействия для HomeControl.xaml
     /// </summary>
-    public partial class Home : UserControl
+    public partial class HomeControl : UserControl
     {
-        public Home()
+        public HomeControl()
         {
             InitializeComponent();
+            this.DataContext = new HomeViewModel();
         }
     }
 }
