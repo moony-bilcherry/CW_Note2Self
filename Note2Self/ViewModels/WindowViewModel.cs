@@ -172,8 +172,6 @@ namespace Note2Self.ViewModels
 
                 };
 
-
-
             BaseViewModel HomeFactory() =>
                   new HomeViewModel()
                   {
@@ -182,10 +180,13 @@ namespace Note2Self.ViewModels
                         { "Register", () => RegisterFactory() },
                         { "Home", () => HomeFactory() },
                         { "Login", () => LoginFactory() }
+                //          ,
+                //        {"Calendar", () => new CalendarViewModel() },
+                //{"Notes", () => new NotesViewModel() },
+                //{"Goals", () => new GoalsViewModel() }
                       })
 
                   };
-
 
             BaseViewModel LoginFactory()
                   => new LoginViewModel()
