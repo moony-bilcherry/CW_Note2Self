@@ -85,15 +85,6 @@ namespace Note2Self.ViewModels
                     UpdateView.Execute("Home");
                 }
                 else MessageBox.Show(res);
-                //await Task.Delay(3000);
-
-                //if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
-                //{
-                //    MessageBox.Show("Убедитесь, что правильно заполнили поля");
-                //    return;
-                //}
-                 
-                //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Home;
                 await Task.Delay(0);
               
             });

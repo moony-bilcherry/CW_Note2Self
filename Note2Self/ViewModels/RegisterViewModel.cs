@@ -12,8 +12,6 @@ namespace Note2Self.ViewModels
     public class RegisterViewModel : BaseViewModel 
     {
 
-
-
         #region Для переключения вьюх
 
         private UpdateViewCommand _updateView;
@@ -85,8 +83,7 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => GoBackIsRunning, async () =>
             {
-                MessageBox.Show("ЧЕРЕЗ СЕКУНДУ ПОЙДЕМ НАЗАД");
-                await Task.Delay(1000);
+                await Task.Delay(0);
                 UpdateView.Execute("Login");
             });
         }

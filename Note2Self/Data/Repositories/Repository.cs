@@ -24,24 +24,24 @@ namespace Note2Self.Repositories
 
         #region Методы интерфейса
 
-        public void Add(TEntity entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
-        {
-            throw new NotImplementedException();
-        }
-
         public TEntity Get(int id)
         {
-            throw new NotImplementedException();
+            return Context.Set<TEntity>().Find(id);
         }
 
         public IEnumerable<TEntity> GetAll()
         {
-            throw new NotImplementedException();
+            return Context.Set<TEntity>().ToList();
+        }
+
+        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
+        {
+            return Context.Set<TEntity>().Where(predicate);
+        }
+
+        public void Add(TEntity entity)
+        {
+            Context.Set<TEntity>().Add(entity);
         }
 
         public void Remove(TEntity entity)
@@ -49,8 +49,28 @@ namespace Note2Self.Repositories
             throw new NotImplementedException();
         }
 
+        public void Update(TEntity entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(IEnumerable<TEntity> entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<TEntity> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        public TEntity FindById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
-        
+
     }
 }

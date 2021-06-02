@@ -1,5 +1,4 @@
-﻿using Note2Self.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Note2Self
+namespace Note2Self.Views
 {
     /// <summary>
-    /// Логика взаимодействия для HomePage.xaml
+    /// Логика взаимодействия для AdminControl.xaml
     /// </summary>
-    public partial class HomePage : BasePage<HomeViewModel>
+    public partial class AdminControl : UserControl
     {
-        public HomePage()
+        public AdminControl()
         {
             InitializeComponent();
         }

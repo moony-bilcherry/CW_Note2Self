@@ -173,36 +173,37 @@ namespace Note2Self.ViewModels
                 };
 
             HomeViewModel HomeFactory() =>
-                  new HomeViewModel()
-                  {
-                      UpdateView = new UpdateViewCommand(this, new Dictionary<string, Func<BaseViewModel>>
-                      {
+                new HomeViewModel()
+                {
+                    UpdateView = new UpdateViewCommand(this, new Dictionary<string, Func<BaseViewModel>>
+                    {
                         { "Register", () => RegisterFactory() },
                         { "Home", () => HomeFactory() },
-                        { "Login", () => LoginFactory() }
-                          ,
-                        {"Calendar", () =>
-                {
-                    var h = HomeFactory();
-                    h.SelectedViewModel = new CalendarViewModel();
-                    return h;
-                } },
-                {"Notes",() =>
-                {
-                    var h = HomeFactory();
-                    h.SelectedViewModel = new NotesViewModel();
-                    return h;
-                } }
-               ,
-                {"Goals", () =>
-                {
-                    var h = HomeFactory();
-                    h.SelectedViewModel = new GoalsViewModel();
-                    return h;
-                } }
-                      })
-
-                  };
+                        { "Login", () => LoginFactory() },
+                        { "Calendar", () => {
+                            var h = HomeFactory();
+                            h.SelectedViewModel = new CalendarViewModel();
+                            return h;
+                        } },
+                        { "Notes",() => {
+                            var h = HomeFactory();
+                            h.SelectedViewModel = new NotesViewModel();
+                            return h;
+                        } },
+                        {"Goals", () =>
+                        {
+                            var h = HomeFactory();
+                            h.SelectedViewModel = new GoalsViewModel();
+                            return h;
+                        } },
+                        {"Admin", () =>
+                        {
+                            var h = HomeFactory();
+                            h.SelectedViewModel = new AdminViewModel();
+                            return h;
+                        } }
+                    })
+                };
 
             BaseViewModel LoginFactory()
                   => new LoginViewModel()

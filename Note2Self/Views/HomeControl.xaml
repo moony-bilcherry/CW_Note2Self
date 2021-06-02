@@ -52,7 +52,7 @@
                             Visibility="{Binding CurrentUserRole, Converter={StaticResource converter}}"
                             Style="{StaticResource MenuButton}"
                             Command="{Binding UpdateView}"
-                            CommandParameter="Goals"/>
+                            CommandParameter="Admin"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Horizontal"

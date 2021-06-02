@@ -9,7 +9,7 @@ using Note2Self.Models;
 
 namespace Note2Self.Migrations
 {
-    [DbContext(typeof(ContextDB))]
+    [DbContext(typeof(Note2SelfContext))]
     [Migration("20210601192641_Roles")]
     partial class Roles
     {

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Note2Self.Models
 {
-    public class ContextDB : DbContext
+    public class Note2SelfContext : DbContext
     {
         public DbSet<Users> Users { get; set; }
         public DbSet<Notes> Notes { get; set; }

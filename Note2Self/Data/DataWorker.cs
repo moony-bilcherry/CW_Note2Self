@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace Note2Self
 {
@@ -15,7 +16,7 @@ namespace Note2Self
         // Получить всех пользователей
         public static List<Users> GetAllUsers()
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 return db.Users.AsNoTracking().ToList();
             }
@@ -24,7 +25,7 @@ namespace Note2Self
         // Получить все записки
         public static List<Notes> GetAllNotes()
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 return db.Notes.AsNoTracking().ToList();
             }
@@ -33,7 +34,7 @@ namespace Note2Self
         // Получить все цели
         public static List<Goals> GetAllGoals()
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 return db.Goals.AsNoTracking().ToList();
             }
@@ -44,13 +45,13 @@ namespace Note2Self
         #region Users
 
 
-       public  static Users CurrentUser;
+        public static Users CurrentUser;
         /// <summary>
         /// Добавление нового пользователя
         /// </summary>
         public static string CreateUser(string username, string password)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 /// <summary>
                 /// Если пользователя с таким логином нет, добавляем его
@@ -58,22 +59,32 @@ namespace Note2Self
                 if (db.Users.Any(el => el.Username == username))
                     return ("Пользователь с логином " + username + " уже есть");
 
-                Users newUser = new Users { Username = username, Password = password, Role = Roles.User};
+                Users newUser = new Users { Username = username, Password = password, Role = Roles.User };
                 db.Users.Add(newUser);
                 db.SaveChanges();
                 return "Пользователь " + username + " успешно зарегистрирован";
             }
         }
 
+                
+        public static void RegisterUser(string username, string password)
+        {
+            string s = "Net takogo!";
+            using (var unitOfWork = new UnitOfWork(new Note2SelfContext()))
+            {
+
+                //bool check = unitOfWork.Users.Equals(el=>el.Username=username);
+                unitOfWork.Users.Add(new Users { Username = username, Password = password, Role = Roles.User });
+                unitOfWork.Complete();
+            }
+        }
+
+
 
         public static string Authorize(string username, string password)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
-                /// <summary>
-                /// Если пользователя с таким логином нет, добавляем его
-                /// </summary>
-                /// 
                 if (db.Users.FirstOrDefault(u => u.Username == username) is Users user)
                 {
                     if (user.Password == password)
@@ -98,7 +109,7 @@ namespace Note2Self
         /// </summary>
         public static string CreateNote(DateTime day, string text, PossibleMoods mood)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 /// <summary>
                 /// Если записки на этот день нет, добавляем
@@ -118,7 +129,7 @@ namespace Note2Self
         /// </summary>
         public static string EditNote(DateTime day, string text, PossibleMoods mood)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 Notes newNote = new Notes { Day = day, Text = text, Mood = mood };
                 db.Notes.Add(newNote);
@@ -132,7 +143,7 @@ namespace Note2Self
         /// </summary>
         public static string DeleteNote(Notes note)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 db.Notes.Remove(note);
                 db.SaveChanges();
@@ -149,7 +160,7 @@ namespace Note2Self
         /// </summary>
         public static string CreateGoal(string text)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 Goals newGoal = new Goals { Description = text };
                 db.Goals.Add(newGoal);
@@ -163,7 +174,7 @@ namespace Note2Self
         /// </summary>
         public static string EditGoal(string text)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 Goals newGoal = new Goals { Description = text };
                 db.Goals.Add(newGoal);
@@ -177,7 +188,7 @@ namespace Note2Self
         /// </summary>
         public static string DeleteGoal(Goals goal)
         {
-            using (ContextDB db = new ContextDB())
+            using (Note2SelfContext db = new Note2SelfContext())
             {
                 db.Goals.Remove(goal);
                 db.SaveChanges();

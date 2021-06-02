@@ -27,7 +27,7 @@ namespace Note2Self.ViewModels
         {
             SaveCommand = new RelayCommand(() =>
             {
-                using ContextDB context = new();
+                using Note2SelfContext context = new();
 
                 if (HasNote)
                 {
@@ -44,7 +44,7 @@ namespace Note2Self.ViewModels
         {
 
 
-            using ContextDB context = new();
+            using Note2SelfContext context = new();
 
             var foundNote = context.Notes.FirstOrDefault(note => note.Day == date);
 

@@ -9,7 +9,7 @@ using Note2Self.Models;
 
 namespace Note2Self.Migrations
 {
-    [DbContext(typeof(ContextDB))]
+    [DbContext(typeof(Note2SelfContext))]
     [Migration("20210526192203_Remade")]
     partial class Remade
     {

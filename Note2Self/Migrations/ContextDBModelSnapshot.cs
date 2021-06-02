@@ -8,7 +8,7 @@ using Note2Self.Models;
 
 namespace Note2Self.Migrations
 {
-    [DbContext(typeof(ContextDB))]
+    [DbContext(typeof(Note2SelfContext))]
     partial class ContextDBModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

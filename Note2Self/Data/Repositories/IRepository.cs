@@ -9,11 +9,17 @@ namespace Note2Self.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        TEntity Get(int id);
-        IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
+        
+        //IEnumerable<TEntity> GetAll();
+        //IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
         void Add(TEntity entity);
+
+        void Update(TEntity entity);
+        void Update(IEnumerable<TEntity> entity);
+
+        IEnumerable<TEntity> Get();
+        TEntity FindById(int id);
 
         void Remove(TEntity entity);
     }
