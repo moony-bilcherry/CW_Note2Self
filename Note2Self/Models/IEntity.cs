@@ -4,14 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Note2Self
+namespace Note2Self.Models
 {
-    public enum PossibleMoods
+    public interface IEntity
     {
-        Calm = 0,
-        Happy,
-        Sad,
-        Anxious,
-        Tired,
+        public int Id { get; }
     }
 }

@@ -7,8 +7,24 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="Notes UC" VerticalAlignment="Center">
-
-        </Button>
+        <DataGrid  Grid.Row ="1" x:Name="grid" ItemsSource="{Binding Model}" 
+                   Style="{StaticResource DataGrid}" 
+                   IsReadOnly="False"
+                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                   RowStyle="{StaticResource DataGridRowStyle}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Binding="{Binding Name}" Header="Дата"/>
+                <DataGridTextColumn Width="2*" Binding="{Binding Text}" Header="Текст вопроса"/>
+                <DataGridTemplateColumn Width="*" Header="Просмотреть">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="..."/>
+                            <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
+                                    CommandParameter="{Binding}"/>-->
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </UserControl>

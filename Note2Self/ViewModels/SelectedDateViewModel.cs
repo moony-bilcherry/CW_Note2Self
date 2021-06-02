@@ -27,31 +27,16 @@ namespace Note2Self.ViewModels
         {
             SaveCommand = new RelayCommand(() =>
             {
-                using Note2SelfContext context = new();
-
-                if (HasNote)
-                {
-                    context.Notes.Update(Model);
-                }
-                else
-                {
-                    context.Notes.Add(Model);
-                }
-
+                DataWorker.AddNote(Model);
             });
         }
+
         public SelectedDateViewModel(DateTime date) : this()
         {
-
-
-            using Note2SelfContext context = new();
-
-            var foundNote = context.Notes.FirstOrDefault(note => note.Day == date);
+            var foundNote = DataWorker.GetNote(date);
 
             Model = foundNote ?? new Notes();
-
             HasNote = foundNote is not null;
-           
         }
        
     }

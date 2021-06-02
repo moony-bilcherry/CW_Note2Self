@@ -73,9 +73,19 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => RegisterIsRunning, async () =>
             {
-                //MessageBox.Show(DataWorker.CreateUser(Login, Password));
-                await Task.Delay(3000);
-                MessageBox.Show("ТЕСТ КНОПКИ ПОДТВЕРДИТЬ");
+                if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password) || String.IsNullOrWhiteSpace(RepeatPassword))
+                {
+                    MessageBox.Show("Заполните все поля");
+                    return;
+                }
+                if (Password != RepeatPassword)
+                {
+                    MessageBox.Show("Пароли не совпадают");
+                    return;
+                }
+                MessageBox.Show(DataWorker.RegisterUser(Login, Password));
+                await Task.Delay(200);
+                UpdateView.Execute("Login");
             });
         }
 

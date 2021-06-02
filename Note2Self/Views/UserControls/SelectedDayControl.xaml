@@ -9,10 +9,16 @@
     <Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition/>
-			<RowDefinition/>
+			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-		<TextBox Text="{Binding Model.Text}" Grid.Row="0"/>
-		<Button Content="Сохранить" Grid.Row="1" Command="{Binding SaveCommand}"/>
+        <StackPanel Grid.Row="0">
+            
+            <TextBox Text="{Binding Model.Text}"/>
+        </StackPanel>
+        <Button Content="Сохранить" 
+                Grid.Row="1" 
+                HorizontalAlignment="Center"
+                Command="{Binding SaveCommand}"/>
 
 
 	</Grid>

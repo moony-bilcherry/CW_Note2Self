@@ -10,6 +10,7 @@ namespace Note2Self
     public interface IUnitOfWork : IDisposable
     {
         IUsersRepository Users { get; }
+        INotesRepository Notes { get; }
         int Complete();
     }
 }

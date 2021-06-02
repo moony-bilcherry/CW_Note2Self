@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Note2Self.Models
 {
-    public class Goals : BindableBase
+    public class Goals : BindableBase, IEntity
     {
 
          

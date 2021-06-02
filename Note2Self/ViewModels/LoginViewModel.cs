@@ -77,16 +77,14 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => LoginIsRunning, async () =>
             {
-                var res = DataWorker.Authorize(Login, Password);
-
-                if (res == "OK")
+                if(!DataWorker.Authorize(Login, Password))
                 {
-                    DataWorker.CurrentUser = DataWorker.GetAllUsers().First(u => u.Username == Login);
-                    UpdateView.Execute("Home");
+                    MessageBox.Show("Неверный логин или пароль");
+                    return;
                 }
-                else MessageBox.Show(res);
+                DataWorker.CurrentUser = DataWorker.GetUser(Login);
+                UpdateView.Execute("Home");
                 await Task.Delay(0);
-              
             });
         }
 
@@ -94,11 +92,7 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => RegisterIsRunning, async () =>
             {
-             
-                MessageBox.Show("ХАЧЮ СОЗДАТЬ АКК");
-                await Task.Delay(1000);
-                //SelectedViewModel = new RegisterViewModel();
-                //UpdateView = new UpdateViewCommand(this, "Register");
+                await Task.Delay(0);
                 UpdateView.Execute("Register");
             });
         }

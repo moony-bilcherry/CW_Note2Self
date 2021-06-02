@@ -7,14 +7,12 @@ using System.Threading.Tasks;
 
 namespace Note2Self.Models
 {
-
-
-
     public enum Roles
     {
         User, Admin
     }
-    public class Users : BindableBase
+
+    public class Users : BindableBase, IEntity
     {
 
         public int Id { get; set; }

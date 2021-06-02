@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Note2Self.Repositories
 {
-    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class
+    public class Repository<TEntity> : IRepository<TEntity> where TEntity : class, IEntity
     {
         protected readonly DbContext Context;
 
@@ -18,16 +18,12 @@ namespace Note2Self.Repositories
         public Repository(DbContext context)
         {
             Context = context;
+            
         }
 
         #endregion
 
         #region Методы интерфейса
-
-        public TEntity Get(int id)
-        {
-            return Context.Set<TEntity>().Find(id);
-        }
 
         public IEnumerable<TEntity> GetAll()
         {
@@ -46,27 +42,24 @@ namespace Note2Self.Repositories
 
         public void Remove(TEntity entity)
         {
-            throw new NotImplementedException();
+            TEntity en = Context.Set<TEntity>().SingleOrDefault(s => s.Id == entity.Id);
+            Context.Set<TEntity>().Remove(entity);
         }
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            if (entity is null) throw new ArgumentNullException(nameof(entity));
+            Context.Set<TEntity>().Attach(entity);
+            Context.Entry(entity).State = EntityState.Modified;
         }
 
         public void Update(IEnumerable<TEntity> entity)
         {
             throw new NotImplementedException();
         }
-
-        public IEnumerable<TEntity> Get()
-        {
-            throw new NotImplementedException();
-        }
-
         public TEntity FindById(int id)
         {
-            throw new NotImplementedException();
+            return Context.Set<TEntity>().Find(id);
         }
 
         #endregion
