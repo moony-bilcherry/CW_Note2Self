@@ -14,8 +14,8 @@ namespace Note2Self.ViewModels
 
         public Array Moods { get; set; } = Enum.GetValues<PossibleMoods>();
 
-        private PossibleMoods selectedMood;
-        public PossibleMoods SelectedMood { get => selectedMood; set => Set(ref selectedMood, value); }
+        //private PossibleMoods selectedMood;
+        //public PossibleMoods SelectedMood { get => selectedMood; set => Set(ref selectedMood, value); }
 
         public Notes Model { get; set; }
 
@@ -38,10 +38,12 @@ namespace Note2Self.ViewModels
 
         public SelectedDateViewModel(DateTime date) : this()
         {
+
             var foundNote = DataWorker.GetNote(date);
 
             Model = foundNote ?? new Notes();
             HasNote = foundNote is not null;
+            if (!HasNote) Model.Day = date;
         }
        
     }

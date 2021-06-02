@@ -23,6 +23,10 @@ namespace Note2Self
         #endregion
 
         #region Users
+        public static IEnumerable<Users> GetAllUsers()
+        {
+            return unitOfWork.Users.GetAllWithPropertiesIncluded();
+        }
 
         public static Users GetUser(string username)
         {

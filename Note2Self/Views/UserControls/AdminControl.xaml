@@ -7,8 +7,40 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        <Button Content="ПОЗДРАВЛЯЮ ВЫ АДМИН" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal">
+            <TextBox Text="{Binding SearchString}"
+                     Width="200"/>
+            <Button Command="{Binding SearchCommand}"
+                    Content="Поиск"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <DataGrid  Grid.Row ="1" x:Name="grid" 
+                       ItemsSource="{Binding UsersView}" 
+                       IsReadOnly="True"
+                       AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" Binding="{Binding Username}" Header="Пользователь"/>
+                    <DataGridTextColumn Width="*" Binding="{Binding Role}" Header="Роль"/>
+                    <DataGridTemplateColumn Width="*" Header="Просмотреть">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="..."
+                                        FontSize="16"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
+                                <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
+                                    CommandParameter="{Binding}"/>-->
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
 
     </Grid>
 </UserControl>
