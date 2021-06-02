@@ -26,7 +26,7 @@ namespace Note2Self
 
         public static Users GetUser(string username)
         {
-            return unitOfWork.Users.GetAll().FirstOrDefault(el => el.Username == username);
+            return unitOfWork.Users.GetAllWithPropertiesIncluded().FirstOrDefault(el => el.Username == username);
         }
 
         public static Users CurrentUser;
@@ -52,6 +52,8 @@ namespace Note2Self
 
         #region Записки ?????????????
 
+
+
         public static Notes GetNote(DateTime date)
         {
             return unitOfWork.Notes.GetAll().FirstOrDefault(el => el.Day == date);
@@ -68,7 +70,8 @@ namespace Note2Self
             }
             else
             {
-                unitOfWork.Notes.Add(note);
+                CurrentUser.NotesList.Add(note);
+                unitOfWork.Users.Update(CurrentUser);
             }
             unitOfWork.Complete();
         }

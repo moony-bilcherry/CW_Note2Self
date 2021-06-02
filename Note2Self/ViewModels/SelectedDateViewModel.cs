@@ -12,6 +12,11 @@ namespace Note2Self.ViewModels
     {
         public DateTime Date { get; set; }
 
+        public Array Moods { get; set; } = Enum.GetValues<PossibleMoods>();
+
+        private PossibleMoods selectedMood;
+        public PossibleMoods SelectedMood { get => selectedMood; set => Set(ref selectedMood, value); }
+
         public Notes Model { get; set; }
 
         private RelayCommand saveCommand;

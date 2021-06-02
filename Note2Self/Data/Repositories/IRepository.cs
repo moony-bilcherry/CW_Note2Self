@@ -21,5 +21,6 @@ namespace Note2Self.Repositories
         TEntity FindById(int id);
 
         void Remove(TEntity entity);
+        public IEnumerable<TEntity> GetAllWithPropertiesIncluded();
     }
 }

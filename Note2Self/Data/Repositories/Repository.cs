@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Note2Self.Data.Extensions;
 using Note2Self.Models;
 using System;
 using System.Collections.Generic;
@@ -61,6 +62,10 @@ namespace Note2Self.Repositories
         {
             return Context.Set<TEntity>().Find(id);
         }
+
+        virtual public IEnumerable<TEntity> GetAllWithPropertiesIncluded()
+            =>
+             Context.Set<TEntity>().Include(Context.GetIncludePaths<TEntity>()).ToList();
 
         #endregion
 

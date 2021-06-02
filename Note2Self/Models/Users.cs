@@ -30,7 +30,8 @@ namespace Note2Self.Models
         public string Password { get => password; set => Set(ref password, value); }
 
 
-        private List<Notes> notesList;
+        private List<Notes> notesList = new List<Notes>();
         public List<Notes> NotesList { get => notesList; set => Set(ref notesList, value); }
+
     }
 }
