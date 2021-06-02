@@ -42,13 +42,14 @@
                                        Foreground="{StaticResource GreyBrush}"
                                        FontSize="{StaticResource FontSizeSmall}"
                                        Margin="0 5 0 0"/>
-                            <base:BindablePasswordBox Password="{Binding Password, Mode=TwoWay}"
+                            <base:BindablePasswordBox Password="{Binding RepeatPassword, Mode=TwoWay}"
                                                        x:Name="repeatPasswordTextBox"
                                                        Margin="0 0 0 10"/>
-
+ 
+                            
                             <Button Content="Подтвердить"
                                     HorizontalAlignment="Center"
-                                    base:IsBusyProperty.Value="{Binding LoginIsRunning, Mode=TwoWay}"
+                                    base:IsBusyProperty.Value="{Binding RegisterIsRunning, Mode=TwoWay}"
                                     Command="{Binding RegisterCommand}"/>
                         </StackPanel>
                     </Border>

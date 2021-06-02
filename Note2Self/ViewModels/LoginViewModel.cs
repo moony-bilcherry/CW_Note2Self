@@ -31,18 +31,23 @@ namespace Note2Self.ViewModels
 
         #region Приватные поля
 
+        private string login;
+        private string password;
+        private bool loginIsRunning;
+        private bool registerIsRunning;
 
 
         #endregion
 
         #region Публичные свойства
 
-        public string Login { get; set; }
+        public string Login { get => login; set => Set(ref login, value); }
 
-        public string Password { get; set; }
+        public string Password { get => password; set => Set(ref password, value); }
 
-        public bool LoginIsRunning { get; set; }
-        public bool RegisterIsRunning { get; set; }
+        public bool LoginIsRunning { get => loginIsRunning; set => Set(ref loginIsRunning, value); }
+
+        public bool RegisterIsRunning { get => registerIsRunning; set => Set(ref registerIsRunning, value); }
 
         #endregion
 
@@ -72,6 +77,14 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => LoginIsRunning, async () =>
             {
+                var res = DataWorker.Authorize(Login, Password);
+
+                if (res == "OK")
+                {
+                    DataWorker.CurrentUser = DataWorker.GetAllUsers().First(u => u.Username == Login);
+                    UpdateView.Execute("Home");
+                }
+                else MessageBox.Show(res);
                 //await Task.Delay(3000);
 
                 //if (String.IsNullOrWhiteSpace(Login) || String.IsNullOrWhiteSpace(Password))
@@ -79,10 +92,10 @@ namespace Note2Self.ViewModels
                 //    MessageBox.Show("Убедитесь, что правильно заполнили поля");
                 //    return;
                 //}
-                MessageBox.Show("КНОПКА ВОЙТИ");
+                 
                 //((WindowViewModel)((MainWindow)Application.Current.MainWindow).DataContext).CurrentPage = ApplicationPage.Home;
-                await Task.Delay(1000);
-                UpdateView.Execute("Home");
+                await Task.Delay(0);
+              
             });
         }
 
@@ -90,7 +103,7 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => RegisterIsRunning, async () =>
             {
-                //MessageBox.Show(DataWorker.CreateUser(Login, Password));
+             
                 MessageBox.Show("ХАЧЮ СОЗДАТЬ АКК");
                 await Task.Delay(1000);
                 //SelectedViewModel = new RegisterViewModel();

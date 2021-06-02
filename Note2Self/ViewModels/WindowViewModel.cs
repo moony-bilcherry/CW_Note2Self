@@ -172,7 +172,7 @@ namespace Note2Self.ViewModels
 
                 };
 
-            BaseViewModel HomeFactory() =>
+            HomeViewModel HomeFactory() =>
                   new HomeViewModel()
                   {
                       UpdateView = new UpdateViewCommand(this, new Dictionary<string, Func<BaseViewModel>>
@@ -180,10 +180,26 @@ namespace Note2Self.ViewModels
                         { "Register", () => RegisterFactory() },
                         { "Home", () => HomeFactory() },
                         { "Login", () => LoginFactory() }
-                //          ,
-                //        {"Calendar", () => new CalendarViewModel() },
-                //{"Notes", () => new NotesViewModel() },
-                //{"Goals", () => new GoalsViewModel() }
+                          ,
+                        {"Calendar", () =>
+                {
+                    var h = HomeFactory();
+                    h.SelectedViewModel = new CalendarViewModel();
+                    return h;
+                } },
+                {"Notes",() =>
+                {
+                    var h = HomeFactory();
+                    h.SelectedViewModel = new NotesViewModel();
+                    return h;
+                } }
+               ,
+                {"Goals", () =>
+                {
+                    var h = HomeFactory();
+                    h.SelectedViewModel = new GoalsViewModel();
+                    return h;
+                } }
                       })
 
                   };
@@ -218,7 +234,7 @@ namespace Note2Self.ViewModels
             // позиция относительно окна
             var position = Mouse.GetPosition(_window);
             // если окно развернуто, не добавлять положение окна
-            if(_window.WindowState == WindowState.Maximized)
+            if (_window.WindowState == WindowState.Maximized)
                 return new Point(position.X, position.Y);
             // положение в окне + положение окна в экране
             return new Point(position.X + _window.Left, position.Y + _window.Top);

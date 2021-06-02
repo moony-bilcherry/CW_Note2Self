@@ -7,12 +7,25 @@ using System.Threading.Tasks;
 
 namespace Note2Self.DB
 {
+
+
+
+    public enum Roles
+    {
+        User, Admin
+    }
     public class Users : BindableBase
     {
+
         public int Id { get; set; }
 
         private string username;
         public string Username { get => username; set => Set(ref username, value); }
+
+
+        
+        private Roles role;
+        public Roles Role { get => role; set => Set(ref role, value); }
 
 
         private string password;

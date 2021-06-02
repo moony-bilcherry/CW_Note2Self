@@ -4,10 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Note2Self.Views"
-      xmlns:viewmodels="clr-namespace:Note2Self.ViewModels"
-      FontFamily="Calibri"
+             
+      xmlns:viewmodels="clr-namespace:Note2Self.ViewModels" xmlns:note2self="clr-namespace:Note2Self"
+             FontFamily="Calibri"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <note2self:AdminRoleToVisibilityConverter x:Key="converter"/>
+    </UserControl.Resources>
 
     <Grid>
         <!--<Grid.ColumnDefinitions>
@@ -40,6 +44,12 @@
                             Command="{Binding UpdateView}"
                             CommandParameter="Notes"/>
                     <Button Content="Цели"
+                            Style="{StaticResource MenuButton}"
+                            Command="{Binding UpdateView}"
+                            CommandParameter="Goals"/>
+
+                    <Button Content="Админ"
+                            Visibility="{Binding CurrentUserRole, Converter={StaticResource converter}}"
                             Style="{StaticResource MenuButton}"
                             Command="{Binding UpdateView}"
                             CommandParameter="Goals"/>

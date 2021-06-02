@@ -1,4 +1,5 @@
-﻿using Note2Self.DB;
+﻿using Microsoft.EntityFrameworkCore;
+using Note2Self.DB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace Note2Self
         {
             using (ContextDB db = new ContextDB())
             {
-                return db.Users.ToList();
+                return db.Users.AsNoTracking().ToList();
             }
         }
 
@@ -25,7 +26,7 @@ namespace Note2Self
         {
             using (ContextDB db = new ContextDB())
             {
-                return db.Notes.ToList();
+                return db.Notes.AsNoTracking().ToList();
             }
         }
 
@@ -34,7 +35,7 @@ namespace Note2Self
         {
             using (ContextDB db = new ContextDB())
             {
-                return db.Goals.ToList();
+                return db.Goals.AsNoTracking().ToList();
             }
         }
 
@@ -42,6 +43,8 @@ namespace Note2Self
 
         #region Users
 
+
+       public  static Users CurrentUser;
         /// <summary>
         /// Добавление нового пользователя
         /// </summary>
@@ -55,12 +58,35 @@ namespace Note2Self
                 if (db.Users.Any(el => el.Username == username))
                     return ("Пользователь с логином " + username + " уже есть");
 
-                Users newUser = new Users { Username = username, Password = password };
+                Users newUser = new Users { Username = username, Password = password, Role = Roles.User};
                 db.Users.Add(newUser);
                 db.SaveChanges();
                 return "Пользователь " + username + " успешно зарегистрирован";
             }
-        }        
+        }
+
+
+        public static string Authorize(string username, string password)
+        {
+            using (ContextDB db = new ContextDB())
+            {
+                /// <summary>
+                /// Если пользователя с таким логином нет, добавляем его
+                /// </summary>
+                /// 
+                if (db.Users.FirstOrDefault(u => u.Username == username) is Users user)
+                {
+                    if (user.Password == password)
+                    {
+                        return "OK";
+                    }
+                    else return "Неверный пароль";
+                }
+                else return $"Пользователь {username} не существует";
+               
+              
+            }
+        }
 
 
 

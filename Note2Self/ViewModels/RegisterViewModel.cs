@@ -11,6 +11,9 @@ namespace Note2Self.ViewModels
 {
     public class RegisterViewModel : BaseViewModel 
     {
+
+
+
         #region Для переключения вьюх
 
         private UpdateViewCommand _updateView;
@@ -18,17 +21,30 @@ namespace Note2Self.ViewModels
             get => _updateView; 
             set => Set(ref _updateView, value); }
 
- 
+
         #endregion
 
         #region Приватные поля
+
+
+        private string login;
+        private string password;
+        private bool registerIsRunning;
+        private bool goBackIsRunning;
+        private string repeatPassword;
 
         #endregion
 
         #region Публичные свойства
 
-        public bool RegisterIsRunning { get; set; }
-        public bool GoBackIsRunning { get; set; }
+        public bool RegisterIsRunning { get => registerIsRunning; set => Set(ref registerIsRunning, value); }
+
+        public bool GoBackIsRunning { get => goBackIsRunning; set => Set(ref goBackIsRunning, value); }
+        public string Login { get => login; set => Set(ref login, value); }
+
+        public string Password { get => password; set => Set(ref password, value); }
+
+        public string RepeatPassword { get => repeatPassword; set => Set(ref repeatPassword, value); }
 
         #endregion
 
@@ -59,6 +75,7 @@ namespace Note2Self.ViewModels
         {
             await RunCommand(() => RegisterIsRunning, async () =>
             {
+                //MessageBox.Show(DataWorker.CreateUser(Login, Password));
                 await Task.Delay(3000);
                 MessageBox.Show("ТЕСТ КНОПКИ ПОДТВЕРДИТЬ");
             });
