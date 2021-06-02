@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Note2Self.DB
+namespace Note2Self.Models
 {
-    class ContextDB : DbContext
+    public class ContextDB : DbContext
     {
         public DbSet<Users> Users { get; set; }
         public DbSet<Notes> Notes { get; set; }

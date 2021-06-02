@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Note2Self.DB;
+using Note2Self.Models;
 
 namespace Note2Self.Migrations
 {
@@ -21,7 +21,7 @@ namespace Note2Self.Migrations
                 .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Note2Self.DB.Goals", b =>
+            modelBuilder.Entity("Note2Self.Models.Goals", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -41,7 +41,7 @@ namespace Note2Self.Migrations
                     b.ToTable("Goals");
                 });
 
-            modelBuilder.Entity("Note2Self.DB.Notes", b =>
+            modelBuilder.Entity("Note2Self.Models.Notes", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace Note2Self.Migrations
                     b.ToTable("Notes");
                 });
 
-            modelBuilder.Entity("Note2Self.DB.Users", b =>
+            modelBuilder.Entity("Note2Self.Models.Users", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,9 +85,9 @@ namespace Note2Self.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Note2Self.DB.Goals", b =>
+            modelBuilder.Entity("Note2Self.Models.Goals", b =>
                 {
-                    b.HasOne("Note2Self.DB.Notes", "Notes")
+                    b.HasOne("Note2Self.Models.Notes", "Notes")
                         .WithMany("Goals")
                         .HasForeignKey("NotesId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -96,9 +96,9 @@ namespace Note2Self.Migrations
                     b.Navigation("Notes");
                 });
 
-            modelBuilder.Entity("Note2Self.DB.Notes", b =>
+            modelBuilder.Entity("Note2Self.Models.Notes", b =>
                 {
-                    b.HasOne("Note2Self.DB.Users", "User")
+                    b.HasOne("Note2Self.Models.Users", "User")
                         .WithMany("NotesList")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -107,12 +107,12 @@ namespace Note2Self.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("Note2Self.DB.Notes", b =>
+            modelBuilder.Entity("Note2Self.Models.Notes", b =>
                 {
                     b.Navigation("Goals");
                 });
 
-            modelBuilder.Entity("Note2Self.DB.Users", b =>
+            modelBuilder.Entity("Note2Self.Models.Users", b =>
                 {
                     b.Navigation("NotesList");
                 });

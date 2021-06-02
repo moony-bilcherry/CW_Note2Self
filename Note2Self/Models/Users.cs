@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Note2Self.DB
+namespace Note2Self.Models
 {
 
 

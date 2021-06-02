@@ -1,4 +1,4 @@
-﻿using Note2Self.DB;
+﻿using Note2Self.Models;
 using Note2Self.Models;
 using System;
 using System.Collections.Generic;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Note2Self.DB
+namespace Note2Self.Models
 {
     public class Notes : BindableBase
     {

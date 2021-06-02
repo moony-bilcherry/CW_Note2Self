@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Note2Self.DB;
+using Note2Self.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

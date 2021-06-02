@@ -1,5 +1,5 @@
 ﻿using Note2Self.Commands;
-using Note2Self.DB;
+using Note2Self.Models;
 using Note2Self.ViewModels;
 using System;
 using System.Collections.Generic;

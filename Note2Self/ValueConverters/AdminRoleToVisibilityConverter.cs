@@ -1,4 +1,4 @@
-﻿using Note2Self.DB;
+﻿using Note2Self.Models;
 using System;
 using System.Globalization;
 using System.Windows;
