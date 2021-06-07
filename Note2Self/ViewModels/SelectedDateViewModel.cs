@@ -2,6 +2,7 @@
 using Note2Self.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,6 @@ namespace Note2Self.ViewModels
 
         public Array Moods { get; set; } = Enum.GetValues<PossibleMoods>();
 
-        //private PossibleMoods selectedMood;
-        //public PossibleMoods SelectedMood { get => selectedMood; set => Set(ref selectedMood, value); }
 
         public Notes Model { get; set; }
 
@@ -34,6 +33,7 @@ namespace Note2Self.ViewModels
             {
                 DataWorker.AddNote(Model);
             });
+
         }
 
         public SelectedDateViewModel(DateTime date) : this()

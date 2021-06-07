@@ -16,9 +16,16 @@
 			<RowDefinition/>
 			<RowDefinition Height="Auto"/>
 		</Grid.RowDefinitions>
-        <StackPanel Grid.Row="0"
-                    Margin="10">
-            <ListBox ItemsSource="{Binding Moods}" 
+        <Grid Grid.Row="0"
+                    Margin="30 15 30 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="0"
+                     ItemsSource="{Binding Moods}" 
                      Background="Transparent"
                      FontSize="30"
                      HorizontalAlignment="Center"
@@ -36,13 +43,38 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-            <TextBox Text="{Binding Model.Text}"/>
-        </StackPanel>
+            <TextBox Grid.Row="1" Text="{Binding Model.Text}"
+                     Style="{StaticResource CommonTextBox}"
+                     FontSize="{StaticResource FontSizeRegular}"/>
+
+            <Button Grid.Row="2" Content="Добавить цель"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    FontSize="{StaticResource FontSizeRegular}"
+                    Style="{StaticResource WhiteCommonButton}"/>
+
+            <DataGrid  Grid.Row ="3" 
+                   x:Name="grid" 
+                   ItemsSource="{Binding Model.Goals}" 
+                   IsReadOnly="False"
+                       CanUserAddRows="True"
+                       AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" 
+                                    Binding="{Binding CompletionTime}" 
+                                    Header="Время"/>
+                    <DataGridTextColumn Width="*" 
+                                        Binding="{Binding Description}" 
+                                        Header="Содержание"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
         <Button Content="Сохранить" 
                 Grid.Row="1" 
                 HorizontalAlignment="Center"
                 Command="{Binding SaveCommand}"/>
 
+        
 
 	</Grid>
 </UserControl>

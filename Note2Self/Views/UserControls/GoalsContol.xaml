@@ -8,8 +8,26 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
 
-        <Button Content="Goals UC" VerticalAlignment="Center">
-            
-        </Button>
+        <ScrollViewer Grid.Row="0" 
+                  VerticalScrollBarVisibility="Auto" 
+                  HorizontalScrollBarVisibility="Disabled">
+            <DataGrid  Grid.Row ="1" 
+                   x:Name="grid" 
+                   ItemsSource="{Binding NotesView}" 
+                   IsReadOnly="True"
+                   Style="{StaticResource Stolen}">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="*" 
+                                    Binding="{Binding Day}" 
+                                    Header="День"/>
+                    <DataGridTextColumn Width="*" 
+                                    Binding="{Binding CompletionTime}" 
+                                    Header="Ввремя"/>
+                    <DataGridTextColumn Width="*" 
+                                        Binding="{Binding Description}" 
+                                        Header="Содержание"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </ScrollViewer>
     </Grid>
 </UserControl>

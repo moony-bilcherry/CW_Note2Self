@@ -25,7 +25,7 @@ namespace Note2Self.Models
         private Users user;
         public Users User { get => user; set => Set(ref user, value); }
 
-        private List<Goals> goals;
+        private List<Goals> goals = new List<Goals>();
         public List<Goals> Goals { get => goals; set => Set(ref goals, value); }
     }
 }

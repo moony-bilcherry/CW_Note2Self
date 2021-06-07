@@ -17,6 +17,7 @@ namespace Note2Self.Models
         public string Description { get => description; set => Set(ref description, value); }
 
         public int NotesId { get; set; }
+        public DateTime CompletionTime { get; set; }
 
         private Notes notes;
         public Notes Notes { get => notes; set => Set(ref notes, value); }

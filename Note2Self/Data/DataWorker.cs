@@ -76,56 +76,17 @@ namespace Note2Self
         /// </summary>
         public static Notes GetNote(DateTime date)
         {
-            return unitOfWork.Notes.GetAll().FirstOrDefault(el => el.Day == date && el.UserId == CurrentUser.Id);
+            return unitOfWork.Notes.GetAllWithPropertiesIncluded().FirstOrDefault(el => el.Day == date && el.UserId == CurrentUser.Id);
         }
-
-        /// <summary>
-        /// Добавить новую записку
-        /// </summary>
-        public static void AddNote(Notes note)
-        {
-            if (unitOfWork.Notes.GetAll().Any(el => el.Day == note.Day))
-            {
-                unitOfWork.Notes.Update(note);
-            }
-            else
-            {
-                CurrentUser.NotesList.Add(note);
-                unitOfWork.Users.Update(CurrentUser);
-            }
-            unitOfWork.Complete();
-        }
-
-        /// <summary>
-        /// Изменить записку
-        /// </summary>
-        //public static string EditNote(DateTime day, string text, PossibleMoods mood)
-        //{
-        //    using (Note2SelfContext db = new Note2SelfContext())
-        //    {
-        //        Notes newNote = new Notes { Day = day, Text = text, Mood = mood };
-        //        db.Notes.Add(newNote);
-        //        db.SaveChanges();
-        //        return "Записка успешно добавлена";
-        //    }
-        //}
-
-        /// <summary>
-        /// Удалить записку
-        /// </summary>
-        //public static string DeleteNote(Notes note)
-        //{
-        //    using (Note2SelfContext db = new Note2SelfContext())
-        //    {
-        //        db.Notes.Remove(note);
-        //        db.SaveChanges();
-        //        return ("Записка за " + note.Day.ToString() + " успешно удалена");
-        //    }
-        //}
 
         #endregion
 
         #region Цели
+
+        public static IEnumerable<(DateTime, Goals)> GetAllGoals()
+        {
+            return GetAllNotes().SelectMany<Notes,(DateTime,Goals)>(n => (n.Day, n.Goals));
+        }
 
         /// <summary>
         /// Получить все записки

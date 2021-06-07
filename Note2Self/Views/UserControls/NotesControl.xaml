@@ -11,7 +11,7 @@
     <UserControl.Resources>
         <valueconverters:EnumToEmojiMoodConverter x:Key="converter"/>
     </UserControl.Resources>
-    <ScrollViewer Grid.Row="1" 
+    <ScrollViewer Grid.Row="0" 
                   VerticalScrollBarVisibility="Auto" 
                   HorizontalScrollBarVisibility="Disabled">
         <DataGrid  Grid.Row ="1" 
