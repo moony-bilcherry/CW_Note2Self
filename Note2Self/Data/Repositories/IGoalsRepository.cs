@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 
 namespace Note2Self.Repositories
 {
-    public interface IUsersRepository : IRepository<Users>
+    public interface IGoalsRepository : IRepository<Goals>
     {
-        
     }
 }

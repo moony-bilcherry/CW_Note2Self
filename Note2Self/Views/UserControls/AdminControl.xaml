@@ -11,13 +11,28 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0"
-                    Orientation="Horizontal">
-            <TextBox Text="{Binding SearchString}"
-                     Width="200"/>
-            <Button Command="{Binding SearchCommand}"
-                    Content="Поиск"/>
-        </StackPanel>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" 
+                       Text="Найти пользователя: "
+                       Style="{StaticResource CommonText}"/>
+            <TextBox Grid.Column="1" 
+                     Text="{Binding SearchString}"
+                     Width="200"
+                     VerticalAlignment="Center"
+                     Style="{StaticResource CommonTextBox}"/>
+            <Button Grid.Column="2" 
+                    Command="{Binding SearchCommand}"
+                    Content="Поиск"
+                    FontSize="{StaticResource FontSizeSmall}"
+                    Style="{StaticResource WhiteCommonButton}"
+                    Margin="10 5"
+                    Padding="20 0"/>
+        </Grid>
         <Grid Grid.Row="1">
             <DataGrid  Grid.Row ="1" x:Name="grid" 
                        ItemsSource="{Binding UsersView}" 

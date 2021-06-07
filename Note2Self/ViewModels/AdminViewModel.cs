@@ -39,11 +39,12 @@ namespace Note2Self.ViewModels
             {
                 if (obj is Users user)
                 {
-                    return user.Username.ToLower().Contains(SearchString.ToLower());
+                    return SearchString is null || user.Username.ToLower().Contains(SearchString.ToLower());
                 }
                 return false;
             };
         }
+
         public AdminViewModel()
         {
             UsersView = CollectionViewSource.GetDefaultView(AllUsers);

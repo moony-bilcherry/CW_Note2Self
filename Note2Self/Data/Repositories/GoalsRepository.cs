@@ -4,13 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace Note2Self.Repositories
 {
-    public class UsersRepository : Repository<Users>, IUsersRepository
+    public class GoalsRepository : Repository<Goals>, IGoalsRepository
     {
-        public UsersRepository(Note2SelfContext context) : base(context)
+        public GoalsRepository(Note2SelfContext context) : base(context)
         {
 
         }

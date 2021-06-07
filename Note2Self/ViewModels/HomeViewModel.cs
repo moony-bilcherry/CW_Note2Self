@@ -10,9 +10,6 @@ namespace Note2Self.ViewModels
 {
     public class HomeViewModel : BaseViewModel, INestedViewModel
     {
-
-
-
         public Roles CurrentUserRole { get; set; }
 
         private UpdateViewCommand _updateView;

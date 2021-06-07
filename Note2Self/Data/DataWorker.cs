@@ -11,7 +11,15 @@ namespace Note2Self
 {
     public static class DataWorker
     {
+       /// <summary>
+       /// Связь с контекстом базы данных
+       /// </summary>
         private static UnitOfWork unitOfWork = new UnitOfWork(new Note2SelfContext());
+
+        /// <summary>
+        /// Пользователь, зашедший в приложение
+        /// </summary>
+        public static Users CurrentUser;
 
         #region Конструктор
 
@@ -33,7 +41,6 @@ namespace Note2Self
             return unitOfWork.Users.GetAllWithPropertiesIncluded().FirstOrDefault(el => el.Username == username);
         }
 
-        public static Users CurrentUser;
         /// <summary>
         /// Добавление нового пользователя
         /// </summary>   
@@ -54,17 +61,26 @@ namespace Note2Self
 
         #endregion
 
-        #region Записки ?????????????
+        #region Notes 
 
-
-
-        public static Notes GetNote(DateTime date)
+        /// <summary>
+        /// Получить все записки
+        /// </summary>
+        public static IEnumerable<Notes> GetAllNotes()
         {
-            return unitOfWork.Notes.GetAll().FirstOrDefault(el => el.Day == date);
+            return unitOfWork.Notes.GetAllWithPropertiesIncluded().Where(el => el.UserId == CurrentUser.Id);
         }
 
         /// <summary>
-        /// Добавление новой записки
+        /// Получить записку на конкретный день
+        /// </summary>
+        public static Notes GetNote(DateTime date)
+        {
+            return unitOfWork.Notes.GetAll().FirstOrDefault(el => el.Day == date && el.UserId == CurrentUser.Id);
+        }
+
+        /// <summary>
+        /// Добавить новую записку
         /// </summary>
         public static void AddNote(Notes note)
         {
@@ -81,35 +97,43 @@ namespace Note2Self
         }
 
         /// <summary>
-        /// Изменение записки
+        /// Изменить записку
         /// </summary>
-        public static string EditNote(DateTime day, string text, PossibleMoods mood)
-        {
-            using (Note2SelfContext db = new Note2SelfContext())
-            {
-                Notes newNote = new Notes { Day = day, Text = text, Mood = mood };
-                db.Notes.Add(newNote);
-                db.SaveChanges();
-                return "Записка успешно добавлена";
-            }
-        }
+        //public static string EditNote(DateTime day, string text, PossibleMoods mood)
+        //{
+        //    using (Note2SelfContext db = new Note2SelfContext())
+        //    {
+        //        Notes newNote = new Notes { Day = day, Text = text, Mood = mood };
+        //        db.Notes.Add(newNote);
+        //        db.SaveChanges();
+        //        return "Записка успешно добавлена";
+        //    }
+        //}
 
         /// <summary>
-        /// Удаление записки
+        /// Удалить записку
         /// </summary>
-        public static string DeleteNote(Notes note)
-        {
-            using (Note2SelfContext db = new Note2SelfContext())
-            {
-                db.Notes.Remove(note);
-                db.SaveChanges();
-                return ("Записка за " + note.Day.ToString() + " успешно удалена");
-            }
-        }
+        //public static string DeleteNote(Notes note)
+        //{
+        //    using (Note2SelfContext db = new Note2SelfContext())
+        //    {
+        //        db.Notes.Remove(note);
+        //        db.SaveChanges();
+        //        return ("Записка за " + note.Day.ToString() + " успешно удалена");
+        //    }
+        //}
 
         #endregion
 
         #region Цели
+
+        /// <summary>
+        /// Получить все записки
+        /// </summary>
+        //public static IEnumerable<Goals> GetAllGoals()
+        //{
+        //    return unitOfWork.Goals.GetAllWithPropertiesIncluded().Where(el => el.UserId == CurrentUser.Id);
+        //}
 
         /// <summary>
         /// Добавление новой цели

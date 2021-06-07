@@ -17,11 +17,13 @@ namespace Note2Self
             _context = context;
             Users = new UsersRepository(_context);
             Notes = new NotesRepository(_context);
+            Goals = new GoalsRepository(_context);
 
         }
 
         public IUsersRepository Users { get; private set; }
         public INotesRepository Notes { get; private set; }
+        public IGoalsRepository Goals { get; private set; }
 
         public int Complete()
         {

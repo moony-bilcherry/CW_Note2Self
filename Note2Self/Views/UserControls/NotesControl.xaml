@@ -4,21 +4,45 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Note2Self.Views"
+             xmlns:valueconverters="clr-namespace:Note2Self.ValueConverters"
+             xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <valueconverters:EnumToEmojiMoodConverter x:Key="converter"/>
+    </UserControl.Resources>
     <Grid>
-        <DataGrid  Grid.Row ="1" x:Name="grid" ItemsSource="{Binding Model}" 
+        <DataGrid  Grid.Row ="1" 
+                   x:Name="grid" 
+                   ItemsSource="{Binding NotesView}" 
                    Style="{StaticResource DataGrid}" 
                    IsReadOnly="False"
                    ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
                    RowStyle="{StaticResource DataGridRowStyle}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="*" Binding="{Binding Name}" Header="Дата"/>
-                <DataGridTextColumn Width="2*" Binding="{Binding Text}" Header="Текст вопроса"/>
+                <DataGridTextColumn Width="0.5*" Binding="{Binding UserId}" Header="UserId"/>
+                <DataGridTextColumn Width="*" Binding="{Binding Day}" Header="День"/>
+                <DataGridTemplateColumn Width="*" Header="Настроение">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <emoji:TextBlock 
+                                Text="{Binding Mood, Converter={StaticResource converter}}"
+                                Background="Transparent"
+                                FontSize="30"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Margin="5"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Width="*" Binding="{Binding Text}" Header="Содержание"/>
                 <DataGridTemplateColumn Width="*" Header="Просмотреть">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="..."/>
+                            <Button Content="..."
+                                    FontSize="16"
+                                    HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"/>
                             <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
                                     CommandParameter="{Binding}"/>-->
                         </DataTemplate>
