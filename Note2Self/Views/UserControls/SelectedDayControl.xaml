@@ -50,8 +50,9 @@
                 </ListBox.ItemsPanel>
             </ListBox>
             <TextBox Grid.Row="1" Text="{Binding Model.Text}"
-                     Style="{StaticResource CommonTextBox}"
-                     FontSize="{StaticResource FontSizeRegular}"/>
+                     Style="{StaticResource CommonTextBoxWithWrap}"
+                     FontSize="{StaticResource FontSizeRegular}"
+                     MinHeight="100"/>
 
             <TextBlock Grid.Row="2" Text="Цели:"
                     HorizontalAlignment="Center"

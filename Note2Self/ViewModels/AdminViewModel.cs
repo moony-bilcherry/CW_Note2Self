@@ -16,21 +16,14 @@ namespace Note2Self.ViewModels
     {
         public IEnumerable<Users> AllUsers { get; set; } = DataWorker.GetAllUsers();
 
+        private Users selectedUser;
+        public Users SelectedUser { get => selectedUser; set => Set(ref selectedUser, value); }
+
         public ICollectionView UsersView { get; set; }
 
         private string searchString;
         public string SearchString { get => searchString; set => Set(ref searchString, value); }
 
-        //public ObservableCollection<GameModel> GameModelList
-        //{
-        //    get => gameModelList;
-        //    set
-        //    {
-        //        gameModelList = value;
-        //        GameModelListView = CollectionViewSource.GetDefaultView(GameModelList);
-        //        NotifyPropertyChanged();
-        //    }
-        //}
         public ICommand SearchCommand { get; set; }
 
         private void Sort()
