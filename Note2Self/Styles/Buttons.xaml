@@ -65,7 +65,7 @@
                             <Setter Property="Foreground"  Value="{StaticResource LightPurpleBrush}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="true">
-                            <Setter Property="Background" TargetName="border" Value="{StaticResource TealPressedBrush}"/>
+                            <Setter Property="Background" TargetName="border" Value="{StaticResource PlatinumBrush}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Background" TargetName="border" Value="{StaticResource SilverBrush}"/>

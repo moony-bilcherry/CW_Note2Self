@@ -40,22 +40,23 @@
                        ItemsSource="{Binding UsersView}" 
                        IsReadOnly="True"
                        AutoGenerateColumns="False"
-                       Style="{StaticResource DataGrid}" 
-                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
-                       RowStyle="{StaticResource DataGridRowStyle}">
+                       Style="{StaticResource Stolen}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" 
                                         Binding="{Binding Username}" 
                                         Header="Пользователь"
                                         />
                     <DataGridTextColumn Width="*" Binding="{Binding Role}" Header="Роль"/>
-                    <DataGridTemplateColumn Width="*" Header="Просмотреть">
+                    <DataGridTemplateColumn Width="Auto" Header="Просмотреть">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <Button Content="..."
-                                        FontSize="16"
                                         HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"/>
+                                        VerticalAlignment="Center"
+                                        FontSize="{StaticResource FontSizeRegular}"
+                                        Style="{StaticResource WhiteCommonButton}"
+                                        Margin="20 0"
+                                        Padding="20 5"/>
                                 <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
                                     CommandParameter="{Binding}"/>-->
                             </DataTemplate>

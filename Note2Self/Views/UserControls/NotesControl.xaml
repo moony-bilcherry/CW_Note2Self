@@ -18,7 +18,7 @@
                    x:Name="grid" 
                    ItemsSource="{Binding NotesView}" 
                    IsReadOnly="True"
-                   Style="{StaticResource CommonDataGrid}">
+                   Style="{StaticResource Stolen}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="Auto" 
                                     Binding="{Binding Day}" 
@@ -38,13 +38,16 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Width="*" Binding="{Binding Text}" Header="Содержание"/>
-                <DataGridTemplateColumn Width="*" Header="Просмотреть">
+                <DataGridTemplateColumn Width="Auto" Header="Просмотреть">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Button Content="..."
-                                    FontSize="16"
                                     HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"/>
+                                        VerticalAlignment="Center"
+                                        FontSize="{StaticResource FontSizeRegular}"
+                                        Style="{StaticResource WhiteCommonButton}"
+                                        Margin="20 0"
+                                        Padding="20 5"/>
                             <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
                                     CommandParameter="{Binding}"/>-->
                         </DataTemplate>
