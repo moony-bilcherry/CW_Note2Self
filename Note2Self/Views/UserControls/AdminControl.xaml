@@ -19,19 +19,22 @@
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" 
                        Text="Найти пользователя: "
-                       Style="{StaticResource CommonText}"/>
+                       Style="{StaticResource CommonText}"
+                       FontSize="{StaticResource FontSizeRegular}"/>
             <TextBox Grid.Column="1" 
                      Text="{Binding SearchString}"
                      Width="200"
                      VerticalAlignment="Center"
-                     Style="{StaticResource CommonTextBox}"/>
+                     Style="{StaticResource CommonTextBox}"
+                     FontSize="{StaticResource FontSizeRegular}"/>
             <Button Grid.Column="2" 
                     Command="{Binding SearchCommand}"
                     Content="Поиск"
-                    FontSize="{StaticResource FontSizeSmall}"
+                    FontSize="{StaticResource FontSizeRegular}"
                     Style="{StaticResource WhiteCommonButton}"
                     Margin="10 5"
-                    Padding="20 0"/>
+                    Padding="20 0"
+                    />
         </Grid>
         <ScrollViewer Grid.Row="1" 
                       VerticalScrollBarVisibility="Auto" 
