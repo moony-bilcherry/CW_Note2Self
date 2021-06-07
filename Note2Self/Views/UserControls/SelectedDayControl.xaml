@@ -49,11 +49,12 @@
                     </ItemsPanelTemplate>
                 </ListBox.ItemsPanel>
             </ListBox>
-            <TextBox Grid.Row="1" Text="{Binding Model.Text}"
-                     Style="{StaticResource CommonTextBoxWithWrap}"
+            <emoji:RichTextBox Grid.Row="1" 
+                               Text="{Binding Model.Text}"
                      FontSize="{StaticResource FontSizeRegular}"
                      MinHeight="100"/>
 
+                <!--Style="{StaticResource CommonTextBoxWithWrap}"-->
             <TextBlock Grid.Row="2" Text="Цели:"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
