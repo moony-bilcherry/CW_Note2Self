@@ -66,6 +66,14 @@ namespace Note2Self
         /// <summary>
         /// Получить все записки
         /// </summary>
+        /// 
+
+
+        static Note2SelfContext context = new Note2SelfContext();
+        public static bool HasNote(DateTime time)
+        {
+            return context.Notes.Any(n => n.Day == time && n.UserId == CurrentUser.Id);
+        }
         public static IEnumerable<Notes> GetAllNotes()
         {
             return unitOfWork.Notes.GetAllWithPropertiesIncluded().Where(el => el.UserId == CurrentUser.Id);
@@ -83,11 +91,10 @@ namespace Note2Self
 
         #region Цели
 
-        public static IEnumerable<(DateTime, Goals)> GetAllGoals()
+        public static IEnumerable<(DateTime day, Goals goal)> GetAllGoals()
         {
-            return GetAllNotes().SelectMany<Notes,(DateTime,Goals)>(n => (n.Day, n.Goals));
+            return GetAllNotes().SelectMany(n => n.Goals.Select(g => (n.Day, g)));
         }
-
         /// <summary>
         /// Получить все записки
         /// </summary>
@@ -139,6 +146,23 @@ namespace Note2Self
 
         #endregion
 
+
+        /// <summary>
+        /// Добавить новую записку
+        /// </summary>
+        public static void AddNote(Notes note)
+        {
+            if (unitOfWork.Notes.GetAll().Any(el => el.Day == note.Day))
+            {
+                unitOfWork.Notes.Update(note);
+            }
+            else
+            {
+                CurrentUser.NotesList.Add(note);
+                unitOfWork.Users.Update(CurrentUser);
+            }
+            unitOfWork.Complete();
+        }
 
 
 

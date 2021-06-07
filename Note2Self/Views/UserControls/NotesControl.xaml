@@ -21,7 +21,7 @@
                    Style="{StaticResource Stolen}">
             <DataGrid.Columns>
                 <DataGridTextColumn Width="Auto" 
-                                    Binding="{Binding Day}" 
+                                    Binding="{Binding Day,  StringFormat=dd.MM.yyyy}" 
                                     Header="День"/>
                 <DataGridTemplateColumn Width="Auto" 
                                         Header="Настроение">

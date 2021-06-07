@@ -18,13 +18,13 @@
                    Style="{StaticResource Stolen}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" 
-                                    Binding="{Binding Day}" 
+                                    Binding="{Binding Day, StringFormat=dd.MM.yyyy}" 
                                     Header="День"/>
                     <DataGridTextColumn Width="*" 
-                                    Binding="{Binding CompletionTime}" 
-                                    Header="Ввремя"/>
+                                    Binding="{Binding Model.CompletionTime,  StringFormat=hh:mm}" 
+                                    Header="Время"/>
                     <DataGridTextColumn Width="*" 
-                                        Binding="{Binding Description}" 
+                                        Binding="{Binding Model.Description}" 
                                         Header="Содержание"/>
                 </DataGrid.Columns>
             </DataGrid>
