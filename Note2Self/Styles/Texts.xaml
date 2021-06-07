@@ -118,44 +118,68 @@
     </Style>
 
     <!-- DataGrid по умолчанию -->
-    <Style x:Key="DataGrid" TargetType="{x:Type DataGrid}" >
+    <Style x:Key="CommonDataGrid" TargetType="{x:Type DataGrid}" >
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        
         <Setter Property="AutoGenerateColumns" Value="False"/>
+
         <Setter Property="HorizontalGridLinesBrush" Value="{StaticResource OffWhiteBrush}" />
         <Setter Property="VerticalGridLinesBrush" Value="{StaticResource OffWhiteBrush}" />
         <Setter Property="IsReadOnly" Value="True"/>
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-        
-        <Setter Property="BorderThickness" Value="0 0 0 3"/>
-        <Setter Property="BorderBrush" Value="{StaticResource OffWhiteBrush}"/>
+
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Margin" Value="0"/>
+
         <Setter Property="Foreground" Value="{StaticResource OffWhiteBrush}"/>
         <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
         <Setter Property="FontFamily" Value="Calibri"/>
+
+        <Setter Property="RowStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Height" Value="Auto"/>
+
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+
+                    <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
+                    <Setter Property="Foreground" Value="{StaticResource OffWhiteBrush}"/>
+                    <Setter Property="FontFamily" Value="Calibri"/>
+
+                    <Style.Triggers>
+                        <!-- Highlight a grid row as the mouse passes over -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="Red" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+
+        <Setter Property="ColumnHeaderStyle">
+            <Setter.Value>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Height" Value="Auto"/>
+
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Setter Property="VerticalAlignment" Value="Center"/>
+
+                    <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
+                    <Setter Property="Foreground" Value="{StaticResource OffWhiteBrush}"/>
+                    <Setter Property="FontFamily" Value="Calibri"/>
+                </Style>
+            </Setter.Value>
+        </Setter>
     </Style>
-    <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}" >
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Padding" Value="10"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        
-        <Setter Property="Foreground" Value="{StaticResource OffWhiteBrush}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeRegular}"/>
-        <Setter Property="FontFamily" Value="Calibri"/>
-    </Style>
-    <Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridRow}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Padding" Value="10"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        
-        <Setter Property="Foreground" Value="{StaticResource OffWhiteBrush}"/>
-        <Setter Property="FontSize" Value="{StaticResource FontSizeSmall}"/>
-        <Setter Property="FontFamily" Value="Calibri"/>
-    </Style>
-    
-    <Style TargetType="{x:Type DataGrid}">
+
+    <Style TargetType="{x:Type DataGrid}" x:Key="Stolen">
         <!-- Make the border and grid lines a little less imposing -->
         <Setter Property="BorderBrush" Value="#DDDDDD" />
         <Setter Property="HorizontalGridLinesBrush" Value="#DDDDDD" />

@@ -33,13 +33,21 @@
                     Margin="10 5"
                     Padding="20 0"/>
         </Grid>
-        <Grid Grid.Row="1">
-            <DataGrid  Grid.Row ="1" x:Name="grid" 
+        <ScrollViewer Grid.Row="1" 
+                      VerticalScrollBarVisibility="Auto" 
+                      HorizontalScrollBarVisibility="Disabled">
+            <DataGrid  x:Name="grid" 
                        ItemsSource="{Binding UsersView}" 
                        IsReadOnly="True"
-                       AutoGenerateColumns="False">
+                       AutoGenerateColumns="False"
+                       Style="{StaticResource DataGrid}" 
+                       ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
+                       RowStyle="{StaticResource DataGridRowStyle}">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Width="*" Binding="{Binding Username}" Header="Пользователь"/>
+                    <DataGridTextColumn Width="*" 
+                                        Binding="{Binding Username}" 
+                                        Header="Пользователь"
+                                        />
                     <DataGridTextColumn Width="*" Binding="{Binding Role}" Header="Роль"/>
                     <DataGridTemplateColumn Width="*" Header="Просмотреть">
                         <DataGridTemplateColumn.CellTemplate>
@@ -55,7 +63,8 @@
                     </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
-        </Grid>
+        </ScrollViewer>
+        
 
     </Grid>
 </UserControl>

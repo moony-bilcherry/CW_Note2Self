@@ -11,18 +11,20 @@
     <UserControl.Resources>
         <valueconverters:EnumToEmojiMoodConverter x:Key="converter"/>
     </UserControl.Resources>
-    <Grid>
+    <ScrollViewer Grid.Row="1" 
+                  VerticalScrollBarVisibility="Auto" 
+                  HorizontalScrollBarVisibility="Disabled">
         <DataGrid  Grid.Row ="1" 
                    x:Name="grid" 
                    ItemsSource="{Binding NotesView}" 
-                   Style="{StaticResource DataGrid}" 
-                   IsReadOnly="False"
-                   ColumnHeaderStyle="{StaticResource DataGridColumnHeaderStyle}"
-                   RowStyle="{StaticResource DataGridRowStyle}">
+                   IsReadOnly="True"
+                   Style="{StaticResource CommonDataGrid}">
             <DataGrid.Columns>
-                <DataGridTextColumn Width="0.5*" Binding="{Binding UserId}" Header="UserId"/>
-                <DataGridTextColumn Width="*" Binding="{Binding Day}" Header="День"/>
-                <DataGridTemplateColumn Width="*" Header="Настроение">
+                <DataGridTextColumn Width="Auto" 
+                                    Binding="{Binding Day}" 
+                                    Header="День"/>
+                <DataGridTemplateColumn Width="Auto" 
+                                        Header="Настроение">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <emoji:TextBlock 
@@ -50,5 +52,5 @@
                 </DataGridTemplateColumn>
             </DataGrid.Columns>
         </DataGrid>
-    </Grid>
+    </ScrollViewer>
 </UserControl>
