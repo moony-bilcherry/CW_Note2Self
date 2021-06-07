@@ -86,6 +86,10 @@
                            Style="{StaticResource Stolen}"
                            SelectedValue="{Binding SelectedUser}">
                     <DataGrid.Columns>
+                        <DataGridTextColumn Width="Auto" 
+                                            Binding="{Binding Id}" 
+                                            Header="ID"
+                                            />
                         <DataGridTextColumn Width="*" 
                                             Binding="{Binding Username}" 
                                             Header="Пользователь"
