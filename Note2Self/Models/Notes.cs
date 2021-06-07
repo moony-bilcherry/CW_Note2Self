@@ -20,7 +20,11 @@ namespace Note2Self.Models
 
         private PossibleMoods mood;
         public PossibleMoods Mood { get => mood; set => Set(ref mood, value); }
+
         public int UserId { get; set; }
+
+        private byte[] cover;
+        public byte[] Cover { get => cover; set => Set(ref cover, value); }
 
         private Users user;
         public Users User { get => user; set => Set(ref user, value); }

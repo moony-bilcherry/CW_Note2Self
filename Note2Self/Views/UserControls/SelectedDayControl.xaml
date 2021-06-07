@@ -10,6 +10,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <valueconverters:EnumToEmojiMoodConverter x:Key="converter"/>
+        <valueconverters:ByteArrayToBitmapConverter x:Key="ByteArrayToBitmapСonverter"/>
     </UserControl.Resources>
     <Grid>
 		<Grid.RowDefinitions>
@@ -22,7 +23,9 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <ListBox Grid.Row="0"
                      ItemsSource="{Binding Moods}" 
@@ -47,11 +50,11 @@
                      Style="{StaticResource CommonTextBox}"
                      FontSize="{StaticResource FontSizeRegular}"/>
 
-            <Button Grid.Row="2" Content="Добавить цель"
+            <TextBlock Grid.Row="2" Text="Цели:"
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center"
                     FontSize="{StaticResource FontSizeRegular}"
-                    Style="{StaticResource WhiteCommonButton}"/>
+                    Style="{StaticResource CommonText}"/>
 
             <DataGrid  Grid.Row ="3" 
                    x:Name="grid" 
@@ -68,6 +71,21 @@
                                         Header="Содержание"/>
                 </DataGrid.Columns>
             </DataGrid>
+
+
+
+
+            <Button Grid.Row="4" 
+                        Content="Загрузить изображение" 
+                        HorizontalAlignment="Center" 
+                        VerticalAlignment="Center"
+                        Command="{Binding BrowseImageCommand}"/>
+            <Image  Panel.ZIndex="0" 
+                    Grid.Row="5" 
+                    x:Name="cover"
+                    Stretch="Uniform"
+                    Source="{Binding Model.Cover, Converter={StaticResource ByteArrayToBitmapСonverter}, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+
         </Grid>
         <Button Content="Сохранить" 
                 Grid.Row="1" 

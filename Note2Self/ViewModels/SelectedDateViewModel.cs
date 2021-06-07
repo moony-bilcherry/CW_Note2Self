@@ -8,6 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace Note2Self.ViewModels
 {
@@ -48,18 +49,22 @@ namespace Note2Self.ViewModels
             if (!HasNote) Model.Day = date;
         }
 
-        //private void BrowseImageEvent()
-        //{
-        //    OpenFileDialog openFileDialog = new()
-        //    {
-        //        Filter = "Image Files|*.jpg;*.png;*.bmp;*.tiff;"
-        //    };
+        public ICommand BrowseImageCommand => new DelegateCommand(
+                     param => BrowseImageEvent()
+                 );
 
-        //    if (openFileDialog.ShowDialog() == true)
-        //    {
-        //        SelectedGame.Cover = File.ReadAllBytes(openFileDialog.FileName);
-        //    }
-        //}
+        private void BrowseImageEvent()
+        {
+            OpenFileDialog openFileDialog = new()
+            {
+                Filter = "Image Files|*.jpg;*.png;*.bmp;*.tiff;"
+            };
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                Model.Cover = File.ReadAllBytes(openFileDialog.FileName);
+            }
+        }
 
     }
 }
