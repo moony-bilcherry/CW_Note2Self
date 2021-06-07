@@ -25,7 +25,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <ListBox Grid.Row="0"
                      ItemsSource="{Binding Moods}" 
@@ -61,7 +61,8 @@
                    ItemsSource="{Binding Model.Goals}" 
                    IsReadOnly="False"
                        CanUserAddRows="True"
-                       AutoGenerateColumns="False">
+                       AutoGenerateColumns="False"
+                       Style="{StaticResource Stolen}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Width="*" 
                                     Binding="{Binding CompletionTime}" 
@@ -72,14 +73,11 @@
                 </DataGrid.Columns>
             </DataGrid>
 
-
-
-
             <Button Grid.Row="4" 
-                        Content="Загрузить изображение" 
-                        HorizontalAlignment="Center" 
-                        VerticalAlignment="Center"
-                        Command="{Binding BrowseImageCommand}"/>
+                    Content="📸" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center"
+                    Command="{Binding BrowseImageCommand}"/>
             <Image  Panel.ZIndex="0" 
                     Grid.Row="5" 
                     x:Name="cover"
@@ -90,7 +88,8 @@
         <Button Content="Сохранить" 
                 Grid.Row="1" 
                 HorizontalAlignment="Center"
-                Command="{Binding SaveCommand}"/>
+                Command="{Binding SaveCommand}"
+                Style="{StaticResource WhiteCommonButton}"/>
 
         
 

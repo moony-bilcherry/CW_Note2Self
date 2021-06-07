@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Note2Self.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace Note2Self.Views
         public SelectedDayControl()
         {
             InitializeComponent();
+            var a = this.DataContext as SelectedDateViewModel;
         }
     }
 }
