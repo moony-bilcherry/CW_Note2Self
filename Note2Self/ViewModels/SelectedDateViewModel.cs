@@ -43,7 +43,7 @@ namespace Note2Self.ViewModels
 
         }
 
-        public SelectedDateViewModel(DateTime date) : this(DataWorker.GetNote(date) ?? new Notes())
+        public SelectedDateViewModel(DateTime date) : this(DataWorker.GetNote(date) ?? new Notes() { Day = date })
         {
 
         }
