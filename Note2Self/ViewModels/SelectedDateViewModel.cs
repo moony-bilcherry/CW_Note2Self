@@ -14,6 +14,8 @@ namespace Note2Self.ViewModels
 {
     public class SelectedDateViewModel : BaseViewModel
     {
+
+        public event Action Saved;
         public DateTime Date { get; set; }
 
         public Array Moods { get; set; } = Enum.GetValues<PossibleMoods>();
@@ -27,28 +29,25 @@ namespace Note2Self.ViewModels
             get => saveCommand;
             set => Set(ref saveCommand, value);
         }
-        public bool HasNote;
 
 
+        public SelectedDateViewModel(Notes notes) : this() => this.Model = notes;
+        
         public SelectedDateViewModel()
         {
             SaveCommand = new RelayCommand(() =>
             {
                 DataWorker.AddNote(Model);
+                Saved?.Invoke();
             });
 
         }
 
-        public SelectedDateViewModel(DateTime date) : this()
+        public SelectedDateViewModel(DateTime date) : this(DataWorker.GetNote(date) ?? new Notes())
         {
 
-            var foundNote = DataWorker.GetNote(date);
-
-            Model = foundNote ?? new Notes();
-            HasNote = foundNote is not null;
-            if (!HasNote) Model.Day = date;
         }
-
+       
         public ICommand BrowseImageCommand => new DelegateCommand(
                      param => BrowseImageEvent()
                  );

@@ -7,53 +7,119 @@
              xmlns:valueconverters="clr-namespace:Note2Self.ValueConverters"
              xmlns:emoji="clr-namespace:Emoji.Wpf;assembly=Emoji.Wpf"
              mc:Ignorable="d" 
+             xmlns:toolkit="http://schemas.xceed.com/wpf/xaml/toolkit" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
         <valueconverters:EnumToEmojiMoodConverter x:Key="converter"/>
+        <valueconverters:SelectedNoteToVMConverter x:Key="noteConverter"/>
     </UserControl.Resources>
-    <ScrollViewer Grid.Row="0" 
+    <ScrollViewer 
                   VerticalScrollBarVisibility="Auto" 
                   HorizontalScrollBarVisibility="Disabled">
-        <DataGrid  Grid.Row ="1" 
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition>
+                    <ColumnDefinition.Style>
+                        <Style TargetType="{x:Type ColumnDefinition}">
+                            <Setter Property="Width" Value="Auto"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedDateViewModel}" Value="{x:Null}">
+                                    <DataTrigger.Setters>
+                                        <Setter Property="ColumnDefinition.Width" Value="0"/>
+                                    </DataTrigger.Setters>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ColumnDefinition.Style>
+                </ColumnDefinition>
+
+                <ColumnDefinition>
+                    <ColumnDefinition.Style>
+                        <Style TargetType="{x:Type ColumnDefinition}">
+                            <Setter Property="Width" Value="*"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding SelectedDateViewModel}" Value="{x:Null}">
+                                    <DataTrigger.Setters>
+                                        <Setter Property="ColumnDefinition.Width" Value="0"/>
+                                    </DataTrigger.Setters>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ColumnDefinition.Style>
+                </ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <DataGrid 
+                 SelectedValue="{Binding SelectedDateViewModel, Converter={StaticResource noteConverter}, Mode=TwoWay}"
+
+                Grid.Column="0"
                    x:Name="grid" 
                    ItemsSource="{Binding NotesView}" 
                    IsReadOnly="True"
                    Style="{StaticResource Stolen}">
-            <DataGrid.Columns>
-                <DataGridTextColumn Width="Auto" 
+                <DataGrid.Columns>
+                    <DataGridTextColumn Width="Auto" 
                                     Binding="{Binding Day,  StringFormat=dd.MM.yyyy}" 
                                     Header="День"/>
-                <DataGridTemplateColumn Width="Auto" 
+                    <DataGridTemplateColumn Width="Auto" 
                                         Header="Настроение">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <emoji:TextBlock 
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <emoji:TextBlock 
                                 Text="{Binding Mood, Converter={StaticResource converter}}"
                                 Background="Transparent"
                                 FontSize="30"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="5"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-                <DataGridTextColumn Width="*" Binding="{Binding Text}" Header="Содержание"/>
-                <DataGridTemplateColumn Width="Auto" Header="Просмотреть">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button Content="..."
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="*" Header="Содержание">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <toolkit:RichTextBox IsEnabled="False" BorderThickness="0"  Background="Transparent" Text="{Binding Text}"/>
+                            </DataTemplate>
+
+
+                        </DataGridTemplateColumn.CellTemplate>
+
+                        <DataGridTemplateColumn.CellEditingTemplate>
+                            <DataTemplate>
+                                <toolkit:RichTextBox Text="{Binding Text}"/>
+                            </DataTemplate>
+
+                        </DataGridTemplateColumn.CellEditingTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Width="Auto" Header="Просмотреть">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="..."
                                     HorizontalAlignment="Center"
                                         VerticalAlignment="Center"
                                         FontSize="{StaticResource FontSizeRegular}"
                                         Style="{StaticResource WhiteCommonButton}"
                                         Margin="20 0"
                                         Padding="20 5"/>
-                            <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
+                                <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
                                     CommandParameter="{Binding}"/>-->
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-            </DataGrid.Columns>
-        </DataGrid>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+
+            <GridSplitter Grid.Column="1" 
+                          HorizontalAlignment="Center" 
+                          Width="2" 
+                          VerticalAlignment="Stretch"/>
+            <ContentControl Grid.Column="2" Content="{Binding SelectedDateViewModel}"/>
+
+            
+
+
+        </Grid>
+        
     </ScrollViewer>
 </UserControl>

@@ -152,7 +152,7 @@ namespace Note2Self
         /// </summary>
         public static void AddNote(Notes note)
         {
-            if (unitOfWork.Notes.GetAll().Any(el => el.Day == note.Day))
+            if (unitOfWork.Notes.GetAll().Any(el => el.Day == note.Day && el.UserId == note.UserId))
             {
                 unitOfWork.Notes.Update(note);
             }

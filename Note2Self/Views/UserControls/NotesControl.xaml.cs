@@ -20,6 +20,8 @@ namespace Note2Self.Views
     /// </summary>
     public partial class NotesControl : UserControl
     {
+
+        
         public NotesControl()
         {
             InitializeComponent();

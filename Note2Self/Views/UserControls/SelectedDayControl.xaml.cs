@@ -24,7 +24,7 @@ namespace Note2Self.Views
         public SelectedDayControl()
         {
             InitializeComponent();
-            var a = this.DataContext as SelectedDateViewModel;
+            
         }
     }
 }

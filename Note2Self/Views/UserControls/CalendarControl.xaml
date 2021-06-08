@@ -393,7 +393,8 @@
         </Grid.ColumnDefinitions>
         <Border Grid.Row="0" Margin="10" CornerRadius="10" Background="{StaticResource OffWhiteBrush}">
             <Viewbox Stretch="Uniform">
-                <Calendar CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}" SelectedDate="{Binding SelectedDateViewModel, Converter={StaticResource SelectedDateToVMConverter}, Mode=TwoWay}">
+                <Calendar x:Name="calendar"  MouseLeave="Calendar_MouseLeave" CalendarDayButtonStyle="{DynamicResource CalendarCalendarDayButtonStyle1}" Style="{DynamicResource CalendarStyle1}" 
+                          SelectedDate="{Binding SelectedDateViewModel, Converter={StaticResource SelectedDateToVMConverter}, Mode=TwoWay}">
 
                 </Calendar>
             </Viewbox>
@@ -406,7 +407,7 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>-->
-                <ContentControl Content="{Binding SelectedDateViewModel}"/>
+                <ContentControl x:Name="cc"  Content="{Binding SelectedDateViewModel}"/>
             </Grid>
 
         </Border>

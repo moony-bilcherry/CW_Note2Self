@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Note2Self.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,30 @@ namespace Note2Self.Views
         public CalendarControl()
         {
             InitializeComponent();
+        }
+
+
+        private void ForceRefresh()
+        {
+           
+            calendar.InvalidateVisual();
+
+            calendar.InvalidateMeasure();
+
+
+
+        }
+
+ 
+
+        private void Calendar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (cc.Content is SelectedDateViewModel vm)
+            {
+                vm.Saved -= ForceRefresh;
+
+                vm.Saved += ForceRefresh;
+            }
         }
     }
 }

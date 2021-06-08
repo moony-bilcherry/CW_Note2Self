@@ -25,8 +25,8 @@ namespace Note2Self.Models
 
         protected override void OnConfiguring(DbContextOptionsBuilder dbContextOptionsBuilder)
         {
-            dbContextOptionsBuilder.UseSqlServer(@"Data Source=MOONY-SHTO;Initial Catalog=Note2Self;Integrated Security=True");
-           //dbContextOptionsBuilder.UseSqlServer(@"Server=tcp:note2selfserver.database.windows.net,1433;Initial Catalog=app;Persist Security Info=False;User ID=moony;Password=Pamag1te;");
+            //dbContextOptionsBuilder.UseSqlServer(@"Data Source=MOONY-SHTO;Initial Catalog=Note2Self;Integrated Security=True");
+            dbContextOptionsBuilder.UseSqlServer(@"Server=tcp:note2selfserver.database.windows.net,1433;Initial Catalog=app;Persist Security Info=False;User ID=moony;Password=Pamag1te;");
         }
     }
 }

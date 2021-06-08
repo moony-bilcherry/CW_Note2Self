@@ -14,6 +14,9 @@ namespace Note2Self.ViewModels
         public IEnumerable<Notes> AllNotes { get; set; } = DataWorker.GetAllNotes();
         public ICollectionView NotesView { get; set; }
 
+
+        private SelectedDateViewModel selectedDateViewModel;
+        public SelectedDateViewModel SelectedDateViewModel { get => selectedDateViewModel; set => Set(ref selectedDateViewModel, value); }
         public NotesViewModel()
         {
             NotesView = CollectionViewSource.GetDefaultView(AllNotes);
