@@ -13,9 +13,7 @@
         <valueconverters:EnumToEmojiMoodConverter x:Key="converter"/>
         <valueconverters:SelectedNoteToVMConverter x:Key="noteConverter"/>
     </UserControl.Resources>
-    <ScrollViewer 
-                  VerticalScrollBarVisibility="Auto" 
-                  HorizontalScrollBarVisibility="Disabled">
+    
         <Grid>
 
             <Grid.ColumnDefinitions>
@@ -50,10 +48,14 @@
                     </ColumnDefinition.Style>
                 </ColumnDefinition>
             </Grid.ColumnDefinitions>
+
+        <ScrollViewer Grid.Column="0"
+                  VerticalScrollBarVisibility="Auto" 
+                  HorizontalScrollBarVisibility="Disabled">
             <DataGrid 
                  SelectedValue="{Binding SelectedDateViewModel, Converter={StaticResource noteConverter}, Mode=TwoWay}"
 
-                Grid.Column="0"
+                
                    x:Name="grid" 
                    ItemsSource="{Binding NotesView}" 
                    IsReadOnly="True"
@@ -69,7 +71,7 @@
                                 <emoji:TextBlock 
                                 Text="{Binding Mood, Converter={StaticResource converter}}"
                                 Background="Transparent"
-                                FontSize="30"
+                                FontSize="26"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 Margin="5"/>
@@ -92,25 +94,11 @@
 
                         </DataGridTemplateColumn.CellEditingTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTemplateColumn Width="Auto" Header="Просмотреть">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button Content="..."
-                                    HorizontalAlignment="Center"
-                                        VerticalAlignment="Center"
-                                        FontSize="{StaticResource FontSizeRegular}"
-                                        Style="{StaticResource WhiteCommonButton}"
-                                        Margin="20 0"
-                                        Padding="20 5"/>
-                                <!--<Button Content="..." Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
-                                    CommandParameter="{Binding}"/>-->
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
+        </ScrollViewer>
 
-            <GridSplitter Grid.Column="1" 
+        <GridSplitter Grid.Column="1" 
                           HorizontalAlignment="Center" 
                           Width="2" 
                           VerticalAlignment="Stretch"/>
@@ -121,5 +109,5 @@
 
         </Grid>
         
-    </ScrollViewer>
+   
 </UserControl>

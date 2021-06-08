@@ -86,31 +86,15 @@
                            Style="{StaticResource Stolen}"
                            SelectedValue="{Binding SelectedUser}">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Width="Auto" 
+                        <DataGridTextColumn Width="*" 
                                             Binding="{Binding Id}" 
                                             Header="ID"
                                             />
-                        <DataGridTextColumn Width="*" 
+                        <DataGridTextColumn Width="2*" 
                                             Binding="{Binding Username}" 
                                             Header="Пользователь"
                                             />
-                        <DataGridTextColumn Width="*" Binding="{Binding Role}" Header="Роль"/>
-                        <DataGridTemplateColumn Width="Auto" Header="Просмотреть">
-                            <DataGridTemplateColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Button Content="..."
-                                            HorizontalAlignment="Center"
-                                            VerticalAlignment="Center"
-                                            FontSize="{StaticResource FontSizeRegular}"
-                                            Style="{StaticResource WhiteCommonButton}"
-                                            Margin="20 0"
-                                            Padding="20 5"/>
-                                    <!--<Button Content="..." 
-                                    Command="{Binding RelativeSource={RelativeSource AncestorType=local:QuestionsView}, Path=ViewModel.OpenQuestionWindow}"
-                                        CommandParameter="{Binding}"/>-->
-                                </DataTemplate>
-                            </DataGridTemplateColumn.CellTemplate>
-                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Width="2*" Binding="{Binding Role}" Header="Роль"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </ScrollViewer>
