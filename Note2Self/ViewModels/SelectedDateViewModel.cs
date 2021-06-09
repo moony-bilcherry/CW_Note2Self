@@ -51,7 +51,6 @@ namespace Note2Self.ViewModels
         public ICommand BrowseImageCommand => new DelegateCommand(
                      param => BrowseImageEvent()
                  );
-
         private void BrowseImageEvent()
         {
             OpenFileDialog openFileDialog = new()

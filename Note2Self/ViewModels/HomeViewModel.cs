@@ -22,16 +22,6 @@ namespace Note2Self.ViewModels
         public HomeViewModel()
         {
             CurrentUserRole = DataWorker.CurrentUser.Role;
-            //var factories = new Dictionary<string, Func<BaseViewModel>>
-            //{
-            //    {"Calendar", () => new CalendarViewModel() },
-            //    {"Notes", () => new NotesViewModel() },
-            //    {"Goals", () => new GoalsViewModel() }
-            //};
-           
-            //UpdateView = new UpdateViewCommand(this, factories);
-
-
             SelectedViewModel = new CalendarViewModel();
         }
     }

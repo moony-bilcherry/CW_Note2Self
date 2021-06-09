@@ -24,6 +24,5 @@ namespace Note2Self.Models
                 OnPropertyChanged(propertyName);
             }
         }
-
     }
 }

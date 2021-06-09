@@ -15,37 +15,34 @@ namespace Note2Self.Repositories
         protected readonly DbContext Context;
 
         #region Конструктор
-
         public Repository(DbContext context)
         {
             Context = context;
-            
         }
-
         #endregion
 
         #region Методы интерфейса
-
         public IEnumerable<TEntity> GetAll()
         {
             return Context.Set<TEntity>().ToList();
+        }
+        public void Add(TEntity entity)
+        {
+            Context.Set<TEntity>().Add(entity);
+        }
+        public void Remove(TEntity entity)
+        {
+            TEntity en = Context.Set<TEntity>().SingleOrDefault(s => s.Id == entity.Id);
+            Context.Set<TEntity>().Remove(entity);
         }
 
         public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return Context.Set<TEntity>().Where(predicate);
         }
+        
 
-        public void Add(TEntity entity)
-        {
-            Context.Set<TEntity>().Add(entity);
-        }
-
-        public void Remove(TEntity entity)
-        {
-            TEntity en = Context.Set<TEntity>().SingleOrDefault(s => s.Id == entity.Id);
-            Context.Set<TEntity>().Remove(entity);
-        }
+        
 
         public void Update(TEntity entity)
         {
@@ -53,7 +50,6 @@ namespace Note2Self.Repositories
             Context.Set<TEntity>().Attach(entity);
             Context.Entry(entity).State = EntityState.Modified;
         }
-
         public void Update(IEnumerable<TEntity> entity)
         {
             throw new NotImplementedException();
@@ -62,7 +58,6 @@ namespace Note2Self.Repositories
         {
             return Context.Set<TEntity>().Find(id);
         }
-
         virtual public IEnumerable<TEntity> GetAllWithPropertiesIncluded()
             =>
              Context.Set<TEntity>().Include(Context.GetIncludePaths<TEntity>()).ToList();
