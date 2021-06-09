@@ -86,8 +86,6 @@
         <Setter Property="Padding" Value="30 10"/>
         <Setter Property="Margin" Value="0 10"/>
 
-        <Setter Property="local:IsBusyProperty.Value" Value="False"/>
-
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -104,13 +102,7 @@
                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                   Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisiblityConverter}}"/>
-
-
-                            <TextBlock Visibility="{TemplateBinding local:IsBusyProperty.Value, Converter={local:BooleanToVisiblityConverter}, ConverterParameter=True}"
-                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                       VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                       Text="Загрузка..."/>
+                                   Visibility="Visible"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
