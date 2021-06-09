@@ -48,7 +48,7 @@
                             Command="{Binding UpdateView}"
                             CommandParameter="Goals"/>
 
-                    <Button Content="Админ"
+                    <Button Content="Администрирование"
                             Visibility="{Binding CurrentUserRole, Converter={StaticResource converter}}"
                             Style="{StaticResource MenuButton}"
                             Command="{Binding UpdateView}"

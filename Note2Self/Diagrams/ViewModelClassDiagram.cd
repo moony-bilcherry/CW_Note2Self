@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Note2Self.ViewModels.AdminViewModel" Collapsed="true">
+    <Position X="3.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAAAAAQAAgAAAAAAQAAAAAAAAAAAAAIAAACCAAAA=</HashCode>
+      <FileName>ViewModels\AdminViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.ViewModels.CalendarViewModel" Collapsed="true">
+    <Position X="5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAQAAAAAAAAAABAAAAAQAAAAAAA=</HashCode>
+      <FileName>ViewModels\CalendarViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.ViewModels.GoalViewModel" Collapsed="true">
+    <Position X="8.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAA=</HashCode>
+      <FileName>ViewModels\GoalsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.ViewModels.GoalsViewModel" Collapsed="true">
+    <Position X="6.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAE=</HashCode>
+      <FileName>ViewModels\GoalsViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.ViewModels.HomeViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAABQEAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\HomeViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Note2Self.ViewModels.LoginViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAABQAAAEQAAAAQAAAAAAAAAAABAACCAEBQAgBAUAA=</HashCode>
+      <FileName>ViewModels\LoginViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Note2Self.ViewModels.NotesViewModel" Collapsed="true">
+    <Position X="6.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAAAACAE=</HashCode>
+      <FileName>ViewModels\NotesViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.ViewModels.RegisterViewModel" Collapsed="true">
+    <Position X="8.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAQAAEAAAAQBAAAAAAAAAAAABAQGCAABQAgAAUEA=</HashCode>
+      <FileName>ViewModels\RegisterViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.ViewModels.SelectedDateViewModel" Collapsed="true">
+    <Position X="3.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAICAACAAAAAIABAAwAAAAEAAA=</HashCode>
+      <FileName>ViewModels\SelectedDateViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.ViewModels.WindowViewModel" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EUkADQGAFggAAAAQgAEAQEEAAAAAAAoAAAIhAAAEAAA=</HashCode>
+      <FileName>ViewModels\WindowViewModel.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="Note2Self.ViewModels.INestedViewModel" Collapsed="true">
+    <Position X="3.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\INestedViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

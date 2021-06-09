@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Note2Self.Models.Note2SelfContext" Collapsed="true">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgACAAAQAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Data\Note2SelfContext.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.Models.BindableBase" Collapsed="true">
+    <Position X="8.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAIAAAAAAAgAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\BindableBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Note2Self.Models.Goals" Collapsed="true">
+    <Position X="10.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAACgAAAAIAIAAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Models\Goals.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Note2Self.Models.Notes" Collapsed="true">
+    <Position X="8.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAjAAAAIEAAAABAAAAAAAgAAAAAAAAIIAAgCCAAIQA=</HashCode>
+      <FileName>Models\Notes.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Note2Self.Models.Users" Collapsed="true">
+    <Position X="6.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAACAAAAAEQAAABEAAAAAAAACAAAAAgAAAAA=</HashCode>
+      <FileName>Models\Users.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Note2Self.Models.IEntity" Collapsed="true">
+    <Position X="8.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\IEntity.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Note2Self.Models.Roles" Collapsed="true">
+    <Position X="10.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Users.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
